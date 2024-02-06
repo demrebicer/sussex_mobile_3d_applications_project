@@ -1,0 +1,64 @@
+.navbar {
+    position: fixed;
+    top: 3rem;
+    left: 4rem;
+    /* Sol taraftan boşluk ekler */
+    right: 4rem;
+    /* Sağ taraftan boşluk ekler */
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 1000;
+    height: 4.5rem;
+    width: calc(100% - 8rem);
+
+    .navbar-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .navbar-logo-img {
+            height: 3rem;
+
+            //add color overlay white
+            filter: brightness(0) invert(1);
+            
+        }
+
+        .navbar-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+
+            margin-top: 0;
+            margin-bottom: 0;
+            /* Home */
+
+            .navbar-link {
+                transition: color 0.3s ease-in-out;
+                text-decoration: none;
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 1rem;
+                line-height: 2rem;
+                /* identical to box height */
+                letter-spacing: 0.05em;
+
+                color: #FFFFFF;
+
+                &:hover {
+                   //without change color do something
+                    font-weight: 600;
+                    transition: color 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+
+
+
+}
