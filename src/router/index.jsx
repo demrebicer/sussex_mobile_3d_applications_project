@@ -8,6 +8,7 @@ import Drinks from "../pages/Drinks";
 import Cola from "../pages/Cola";
 import Sprite from "../pages/Sprite";
 import Fanta from "../pages/Fanta";
+import Contact from "../pages/Contact";
 
 function RouterHandler() {
   return (
@@ -18,6 +19,7 @@ function RouterHandler() {
         <Route path="/~db596/cola" element={<Cola />} />
         <Route path="/~db596/sprite" element={<Sprite />} />
         <Route path="/~db596/fanta" element={<Fanta />} />
+        <Route path="/~db596/contact" element={<Contact />} />
       </Routes>
   );
 }
