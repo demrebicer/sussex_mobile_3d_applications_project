@@ -1,0 +1,126 @@
+.drinks {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  align-items: flex-start;
+  background-color: #830b0e;
+  overflow: hidden;
+
+  .title {
+    /* OUR DRINKS */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10rem;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 120px;
+    /* identical to box height */
+
+    color: #ffffff;
+  }
+
+  .drinks-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    justify-content: space-evenly;
+  }
+
+  .cola-col {
+    height: 20rem;
+    width: 20rem;
+    background-color: #ffffff;
+
+    filter: drop-shadow(10px 8px 55.9px rgba(0, 0, 0, 0.15));
+
+    background: rgba(143, 31, 33, 0.68);
+    box-shadow: 0px 29px 49.9px -16px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .cola-img {
+      width: 100%;
+      padding: 1rem;
+      object-fit: cover;
+    }
+
+    &:hover {
+      background-color: #8b0c0e;
+      //Pointer
+      cursor: pointer;
+      .sprite-img {
+        filter: drop-shadow(10px 8px 55.9px rgba(0, 0, 0, 0.15));
+      }
+    }
+  }
+
+  .sprite-col {
+    height: 20rem;
+    width: 20rem;
+    background-color: #ffffff;
+
+    filter: drop-shadow(10px 8px 55.9px rgba(0, 0, 0, 0.15));
+
+    background: rgba(143, 31, 33, 0.68);
+    box-shadow: 0px 29px 49.9px -16px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sprite-img {
+      width: 100%;
+      padding: 1rem;
+      object-fit: cover;
+    }
+
+    &:hover {
+      background-color: #8b0c0e;
+      //Pointer
+      cursor: pointer;
+      .sprite-img {
+        filter: drop-shadow(10px 8px 55.9px rgba(0, 0, 0, 0.15));
+      }
+    }
+  }
+
+  .fanta-col {
+    height: 20rem;
+    width: 20rem;
+    background-color: #ffffff;
+
+    filter: drop-shadow(10px 8px 55.9px rgba(0, 0, 0, 0.15));
+
+    background: rgba(143, 31, 33, 0.68);
+    box-shadow: 0px 29px 49.9px -16px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .fanta-img {
+      width: 100%;
+      padding: 1rem;
+      object-fit: cover;
+    }
+
+    &:hover {
+      background-color: #8b0c0e;
+      //Pointer
+      cursor: pointer;
+      .sprite-img {
+        filter: drop-shadow(10px 8px 55.9px rgba(0, 0, 0, 0.15));
+      }
+    }
+  }
+}

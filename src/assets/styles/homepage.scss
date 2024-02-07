@@ -1,106 +1,101 @@
-.root {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    align-items: flex-start;
-    background-color: #830b0e;
-    overflow: hidden;
+.homepage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  align-items: flex-start;
+  background-color: #830b0e;
+  overflow: hidden;
 
-    .title {
-        /* TASTE THE */
+  .title {
+    /* TASTE THE */
 
-        position: absolute;
-        width: 26rem;
-        height: 7.5rem;
-        left: 4rem;
-        top: 23rem;
+    position: absolute;
+    width: 26rem;
+    height: 7.5rem;
+    left: 4rem;
+    top: 23rem;
 
-        font-family: 'Poppins', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 5rem;
-        line-height: 7.5rem;
-        text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 5rem;
+    line-height: 7.5rem;
+    text-transform: uppercase;
 
-        color: #FFFFFF;
+    color: #ffffff;
+  }
 
+  .sub-title {
+    position: absolute;
+    width: 26rem;
+    height: 7.5rem;
+    left: 4rem;
+    top: 29rem;
 
-    }
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 9rem;
+    line-height: 7.5rem;
+    text-transform: uppercase;
 
-    .sub-title {
-        position: absolute;
-        width: 26rem;
-        height: 7.5rem;
-        left: 4rem;
-        top: 29rem;
+    color: #ffffff;
+  }
 
-        font-family: 'Poppins', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 9rem;
-        line-height: 7.5rem;
-        text-transform: uppercase;
+  .description {
+    position: absolute;
+    width: 50rem;
+    height: 12rem;
+    left: 4.5rem;
+    top: 37rem;
 
-        color: #FFFFFF;
-    }
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 2rem;
 
-    .description {
-        position: absolute;
-        width: 50rem;
-        height: 12rem;
-        left: 4.5rem;
-        top: 37rem;
+    color: #ffffff;
+  }
 
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 1rem;
-        line-height: 2rem;
+  .view-all-products-btn {
+    color: #000;
 
-        color: #FFFFFF;
+    position: absolute;
+    width: 13rem;
+    height: 3rem;
+    left: 4rem;
+    top: 44rem;
 
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 
-    }
+    border: none;
 
-    .view-all-products-btn {
-        color: #000;
+    border-radius: 2rem;
+  }
 
-        position: absolute;
-        width: 13rem;
-        height: 3rem;
-        left: 4rem;
-        top: 44rem;
+  .cola-can-canvas {
+    position: absolute;
+    width: 35rem;
+    height: 35rem;
+    left: 40rem;
+    top: 5rem;
+  }
 
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 1rem;
-        line-height: 2rem;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+  .cola-can {
+    /* CokeCan_1334x 1 */
 
-        border: none;
-
-        border-radius: 2rem;
-    }
-
-    .cola-can-canvas {
-        position: absolute;
-        width: 35rem;
-        height: 35rem;
-        left: 40rem;
-        top: 5rem;
-    }
-
-    .cola-can {
-        /* CokeCan_1334x 1 */
-
-        position: absolute;
-        width: 35rem;
-        height: 35rem;
-        left: 75rem;
-        top: 25%;
-    }
+    position: absolute;
+    width: 35rem;
+    height: 35rem;
+    left: 75rem;
+    top: 25%;
+  }
 }
-

@@ -11,7 +11,7 @@ function ColaCanModel() {
 
 function Homepage() {
   return (
-    <div className="root">
+    <div className="homepage">
       <h1 className="title">Taste The</h1>
       <h1 className="sub-title">Feeling</h1>
       <p className="description">

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import colaLogo from "../assets/images/colaLogo.png";
 import "../assets/styles/navbar.scss";
 
 const Navbar = () => {
   const [current, setCurrent] = useState("");
 
-  const handleClick = (e) => {
-    setCurrent(e.key);
-  };
+  const navigateTo = useNavigate();
 
   return (
     //logo on left side 3 links on right side
@@ -21,23 +21,40 @@ const Navbar = () => {
             {" "}
             {/* Inline CSS ile listeyi flex yap */}
             <li>
-              <a className="navbar-link" href="/">
+              <a
+                className="navbar-link"
+                onClick={() => {
+                  navigateTo("/~db596");
+                }}
+              >
                 Homepage
               </a>
             </li>
             <li>
-              <a className="navbar-link" href="/about">
-                About
+            <a
+                className="navbar-link"
+                onClick={() => {
+                  navigateTo("/~db596/about");
+                }}
+              >                About
               </a>
             </li>
             <li>
-              <a className="navbar-link" href="/contact">
-                Drinks
+            <a
+                className="navbar-link"
+                onClick={() => {
+                  navigateTo("/~db596/drinks");
+                }}
+              >                Drinks
               </a>
             </li>
             <li>
-              <a className="navbar-link" href="/contact">
-                Contact
+            <a
+                className="navbar-link"
+                onClick={() => {
+                  navigateTo("/~db596/contact");
+                }}
+              >                Contact
               </a>
             </li>
           </ul>

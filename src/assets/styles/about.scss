@@ -1,106 +1,72 @@
-.root {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    align-items: flex-start;
-    background-color: #830b0e;
-    overflow: hidden;
+.about {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  align-items: flex-start;
+  background-color: #830b0e;
+  overflow: hidden;
 
-    .title {
-        /* TASTE THE */
+  .title {
+    /* OUR */
 
-        position: absolute;
-        width: 26rem;
-        height: 7.5rem;
-        left: 4rem;
-        top: 23rem;
+    position: absolute;
+    width: 26rem;
+    height: 7.5rem;
+    left: 4rem;
+    top: 13rem;
 
-        font-family: 'Poppins', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 5rem;
-        line-height: 7.5rem;
-        text-transform: uppercase;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 5rem;
+    line-height: 7.5rem;
+    text-transform: uppercase;
 
-        color: #FFFFFF;
+    color: #ffffff;
+  }
 
+  .sub-title {
+    /* HISTORY */
 
-    }
+    position: absolute;
+    width: 40rem;
+    height: 7.5rem;
+    left: 4rem;
+    top: 17rem;
 
-    .sub-title {
-        position: absolute;
-        width: 26rem;
-        height: 7.5rem;
-        left: 4rem;
-        top: 29rem;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 6rem;
+    line-height: 9rem;
+    text-transform: uppercase;
 
-        font-family: 'Poppins', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 9rem;
-        line-height: 7.5rem;
-        text-transform: uppercase;
+    color: #ffffff;
+  }
 
-        color: #FFFFFF;
-    }
+  .description {
+    /* Founded in 1886 by pharmacist Dr John S Pemberton in Atlanta, Georgia, The Coca‑Cola Company is the world's leading manufacturer, marketer and distributor of non-alcoholic beverage concentrates and syrups, and produces nearly 400 brands. We are constantly transforming our portfolio, from reducing added sugar in our drinks to bringing innovative new products to market. We seek to positively impact people’s lives, communities and the planet through water replenishment, packaging recycling, sustainable sourcing practices and carbon emissions reductions across our value chain. Together with our bottling partners, we employ more than 700,000 people, helping bring economic opportunity to local communities worldwide. */
 
-    .description {
-        position: absolute;
-        width: 50rem;
-        height: 12rem;
-        left: 4.5rem;
-        top: 37rem;
+    position: absolute;
+    width: 50rem;
+    height: 36rem;
+    left: 4rem;
+    top: 28rem;
 
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 1rem;
-        line-height: 2rem;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 2rem;
 
-        color: #FFFFFF;
+    color: #ffffff;
+  }
 
-
-    }
-
-    .view-all-products-btn {
-        color: #000;
-
-        position: absolute;
-        width: 13rem;
-        height: 3rem;
-        left: 4rem;
-        top: 44rem;
-
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 1rem;
-        line-height: 2rem;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-
-        border: none;
-
-        border-radius: 2rem;
-    }
-
-    .cola-can-canvas {
-        position: absolute;
-        width: 35rem;
-        height: 35rem;
-        left: 40rem;
-        top: 5rem;
-    }
-
-    .cola-can {
-        /* CokeCan_1334x 1 */
-
-        position: absolute;
-        width: 35rem;
-        height: 35rem;
-        left: 75rem;
-        top: 25%;
-    }
+  .about-img {
+    position: absolute;
+    width: 40rem;
+    height: 40rem;
+    right: 0;
+    bottom: 0;
+  }
 }
-

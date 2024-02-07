@@ -1,0 +1,41 @@
+.cola {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex; /* Added */
+  justify-content: center; /* Added */
+  align-items: center; /* Added */
+  background-color: #830b0e;
+  overflow: hidden;
+
+  flex-direction: column;
+
+  .background-text {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16rem;
+    line-height: 24rem;
+    text-align: center;
+    letter-spacing: 0.99em;
+    text-transform: uppercase;
+
+    color: #730003;
+  }
+
+  .background-text::after {
+    content: "";
+    margin-right: -0.99em; /* letter-spacing değeriniz neyse, onun negatif değeri */
+  }
+
+  .cola-can {
+    position: absolute; /* Görseli belirli bir konuma sabitler */
+    top: 50%; /* Üstten %50 uzaklıkta */
+    left: 50%; /* Soldan %50 uzaklıkta */
+    transform: translate(-50%, -50%); /* Görseli tam ortaya hizalar */
+    z-index: 10; /* Yazının üstünde görünmesini sağlar */
+    /* Görselin boyutlarını ekleyin, örnek olarak 100px x 100px kullanıldı */
+    width: 40rem; /* Görselin genişliği */
+    height: 40rem; /* Görselin yüksekliği */
+  }
+}
