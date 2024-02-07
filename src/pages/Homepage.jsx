@@ -3,6 +3,7 @@ import "../assets/styles/homepage.scss";
 import colaCan from "../assets/images/colaCan.png";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useNavigate } from "react-router-dom";
 
 function ColaCanModel() {
   const gltf = useGLTF("/~db596/assets/colacan.gltf", true); // Modelin yolu
@@ -10,6 +11,8 @@ function ColaCanModel() {
 }
 
 function Homepage() {
+  const navigateTo = useNavigate();
+
   return (
     <div className="homepage">
       <h1 className="title">Taste The</h1>
@@ -18,7 +21,14 @@ function Homepage() {
         Founded in 1886 by pharmacist Dr John S Pemberton in Atlanta, Georgia, The Coca‑Cola Company is the world's leading manufacturer,
         marketer and distributor of non-alcoholic beverage concentrates and syrups, and produces nearly 400 brands.
       </p>
-      <button className="view-all-products-btn">View All Products</button>
+      <button
+        className="view-all-products-btn"
+        onClick={() => {
+          navigateTo("/~db596/drinks");
+        }}
+      >
+        View All Products
+      </button>
       {/* <img className="cola-can" src={colaCan} alt="Cola Can" /> */}
       <Canvas className="cola-can-canvas" camera={{ position: [0, 0, 5], fov: 40 }}>
         <ambientLight intensity={1.5} /> {/* Çevresel ışığın yoğunluğunu 1.5 yapın */}
