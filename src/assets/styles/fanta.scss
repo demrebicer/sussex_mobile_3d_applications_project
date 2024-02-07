@@ -1,18 +1,19 @@
-.sprite {
+.fanta {
   position: relative;
   width: 100vw;
   display: flex; /* Added */
   justify-content: space-between; /* Added */
   align-items: center; /* Added */
-  background-color: #01c441;
+  background-color: #ff7600;
   overflow: hidden;
 
   flex-direction: column;
 
   .text-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 
     position: absolute; /* Görseli belirli bir konuma sabitler */
@@ -20,65 +21,43 @@
     left: 50%; /* Soldan %50 uzaklıkta */
     transform: translate(-50%, -50%);
 
-    .background-text-left {
-      margin-left: 6rem;
-
+    .background-text {
       font-family: "Poppins";
       font-style: normal;
       font-weight: 900;
       font-size: 15rem;
-      line-height: 22.5rem;
+      line-height: 15rem;
       text-transform: uppercase;
       text-align: center;
-      letter-spacing: 0.38em;
+      letter-spacing: 0.65em;
 
-      color: #fadb03;
+      color: #fbe900;
     }
 
-    .background-text-right {
-      margin-right: 7rem;
-
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 900;
-      font-size: 15rem;
-      line-height: 22.5rem;
-      text-transform: uppercase;
-      text-align: center;
-      letter-spacing: 0.58em;
-
-      color: #fadb03;
-    }
-
-    .background-text-left::after {
+    .background-text::after {
       content: "";
-      margin-right: -0.58em; /* letter-spacing değeriniz neyse, onun negatif değeri */
-    }
-
-    .background-text-right::after {
-      content: "";
-      margin-right: -0.58em; /* letter-spacing değeriniz neyse, onun negatif değeri */
+      margin-right: -0.65em; /* letter-spacing değeriniz neyse, onun negatif değeri */
     }
   }
 
-  .sprite-can {
+  .fanta-can {
     position: absolute; /* Görseli belirli bir konuma sabitler */
     top: 35%; /* Üstten %50 uzaklıkta */
     left: 50%; /* Soldan %50 uzaklıkta */
     transform: translate(-50%, -50%); /* Görseli tam ortaya hizalar */
     z-index: 10; /* Yazının üstünde görünmesini sağlar */
     /* Görselin boyutlarını ekleyin, örnek olarak 100px x 100px kullanıldı */
-    width: 21rem; /* Görselin genişliği */
-    height: 52rem; /* Görselin yüksekliği */
+    width: 23rem; /* Görselin genişliği */
+    height: 55rem; /* Görselin yüksekliği */
   }
 
-  .history-container{
+  .history-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 60rem;
+    margin-top: 65rem;
   }
 
   .title {

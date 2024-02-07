@@ -1,32 +1,33 @@
 import React, { useRef, useState } from "react";
-import "../assets/styles/cola.scss";
+import "../assets/styles/sprite.scss";
 
-import colaCan from "../assets/images/colaCan.png";
+import spriteBottle from "../assets/images/spriteBottle.png";
 
-function Cola() {
+function Sprite() {
   return (
-    <div className="cola">
-      <h1 className="background-text">Coca</h1>
-      <h1 className="background-text">Cola</h1>
-      <img className="cola-can" src={colaCan} alt="Cola Can" />
+    <div className="sprite">
+      <div className="text-container">
+        <h1 className="background-text-left">Spr</h1>
+        <h1 className="background-text-right">ite</h1>
+      </div>
 
-      <h1 className="title">Origin</h1>
-      <h1 className="sub-title">Story</h1>
-      <p className="description">
-        Founded in 1886 by pharmacist Dr John S Pemberton in Atlanta, Georgia,
-        The Coca‑Cola Company is the world's leading manufacturer, marketer and
-        distributor of non-alcoholic beverage concentrates and syrups, and
-        produces nearly 400 brands. We are constantly transforming our
-        portfolio, from reducing added sugar in our drinks to bringing
-        innovative new products to market. We seek to positively impact people’s
-        lives, communities and the planet through water replenishment, packaging
-        recycling, sustainable sourcing practices and carbon emissions
-        reductions across our value chain. Together with our bottling partners,
-        we employ more than 700,000 people, helping bring economic opportunity
-        to local communities worldwide.
-      </p>
+      <img className="sprite-can" src={spriteBottle} alt="Sprite Bottle" />
+
+      <div className="history-container">
+        <h1 className="title">Origin</h1>
+        <h1 className="sub-title">Story</h1>
+        <p className="description">
+          Launched in 1961 as a response to the growing demand for a crisp, refreshing beverage that could rival the popularity of
+          traditional colas, Sprite emerged from the creative minds at The Coca-Cola Company. With its clear, lemon-lime flavor, Sprite
+          instantly captivated the taste buds of a generation looking for an invigorating soda experience. It was the answer to the
+          consumers' desire for something different, something that danced on the palate with a burst of citrus. Over the years, Sprite has
+          become synonymous with encouraging individuality and a bold spirit, often aligning itself with youth culture and music. As part of
+          its commitment to environmental sustainability, Sprite has continuously innovated its packaging solutions to reduce impact,
+          reflecting its dedication to refreshing not just its consumers but the planet as well.
+        </p>
+      </div>
     </div>
   );
 }
 
-export default Cola;
+export default Sprite;
