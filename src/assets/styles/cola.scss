@@ -91,15 +91,21 @@
     color: #ffffff;
   }
 
-  .control-buttons-container {
+  .control-buttons {
     z-index: 100;
-    //vertical center, horizontal center
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+
     position: absolute;
     top: 35%;
-    right: 1%;
+    right: 4%;
     transform: translate(0, -50%);
 
-    .control-button {
+    button {
       height: 3rem;
       width: 3rem;
       background-color: transparent;
@@ -108,6 +114,39 @@
       cursor: pointer;
 
       color: #ffffff;
+    }
+
+    .additionalButtons {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 1rem;
+    }
+
+    .additionalButtons > div {
+      /* Targeting the direct div container of subChildButton */
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem; /* Adjust this value as needed for your desired gap */
+    }
+
+    .arrow-up {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid white;
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .wrench-icon {
+      transition: transform 0.3s ease;
+
+      &.rotate {
+        transform: rotate(15deg);
+      }
     }
   }
 }
