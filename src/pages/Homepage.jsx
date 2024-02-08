@@ -29,18 +29,18 @@ function Homepage() {
       >
         View All Products
       </button>
-      {/* <img className="cola-can" src={colaCan} alt="Cola Can" /> */}
-      <Canvas className="cola-can-canvas" camera={{ position: [0, 0, 5], fov: 40 }}>
-        <ambientLight intensity={1.5} /> {/* Çevresel ışığın yoğunluğunu 1.5 yapın */}
-        <directionalLight position={[0, 5, 0]} intensity={3} color={"#ffffff"} /> {/* Üstten gelen ışık */}
-        <directionalLight position={[0, -5, 0]} intensity={1.5} color={"#ffffff"} /> {/* Altından gelen ışığın yoğunluğunu artırın */}
-        <directionalLight position={[5, 0, 0]} intensity={2.25} color={"#ffffff"} /> {/* Sağdan gelen ışık */}
-        <directionalLight position={[-5, 0, 0]} intensity={2.25} color={"#ffffff"} /> {/* Soldan gelen ışık */}
-        <directionalLight position={[0, 0, 5]} intensity={1.5} color={"#ffffff"} /> {/* Önden gelen ışık */}
-        <directionalLight position={[0, 0, -5]} intensity={1.5} color={"#ffffff"} /> {/* Arkadan gelen ışık */}
+      <img className="cola-can" src={colaCan} alt="Cola Can" />
+      {/* <Canvas className="cola-can-canvas" camera={{ position: [0, 0, 5], fov: 40 }}> 
+        <ambientLight intensity={1.5} /> Çevresel ışığın yoğunluğunu 1.5 yapın
+        <directionalLight position={[0, 5, 0]} intensity={3} color={"#ffffff"} /> Üstten gelen ışık
+        <directionalLight position={[0, -5, 0]} intensity={1.5} color={"#ffffff"} /> Altından gelen ışığın yoğunluğunu artırın
+        <directionalLight position={[5, 0, 0]} intensity={2.25} color={"#ffffff"} /> Sağdan gelen ışık
+        <directionalLight position={[-5, 0, 0]} intensity={2.25} color={"#ffffff"} /> Soldan gelen ışık
+        <directionalLight position={[0, 0, 5]} intensity={1.5} color={"#ffffff"} /> Önden gelen ışık
+        <directionalLight position={[0, 0, -5]} intensity={1.5} color={"#ffffff"} /> Arkadan gelen ışık
         <OrbitControls enableZoom={false} />
         <ColaCanModel />
-      </Canvas>
+      </Canvas> */}
     </div>
   );
 }
