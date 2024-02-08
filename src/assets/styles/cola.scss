@@ -36,8 +36,18 @@
     transform: translate(-50%, -50%); /* Görseli tam ortaya hizalar */
     z-index: 10; /* Yazının üstünde görünmesini sağlar */
     /* Görselin boyutlarını ekleyin, örnek olarak 100px x 100px kullanıldı */
-    width: 40rem; /* Görselin genişliği */
+    width: 100%; /* Görselin genişliği */
     height: 40rem; /* Görselin yüksekliği */
+  }
+
+  .cola-can-canvas {
+    position: absolute !important; /* Görseli belirli bir konuma sabitler */
+    width: 100% !important; /* Görselin genişliği */
+    height: 70rem !important;
+    top: 35% !important; /* Üstten %50 uzaklıkta */
+    left: 50% !important; /* Soldan %50 uzaklıkta */
+    transform: translate(-50%, -50%) !important; /* Görseli tam ortaya hizalar */
+    z-index: 10 !important; /* Yazının üstünde görünmesini sağlar */
   }
 
   .title {
@@ -79,5 +89,25 @@
     text-align: center;
 
     color: #ffffff;
+  }
+
+  .control-buttons-container {
+    z-index: 100;
+    //vertical center, horizontal center
+    position: absolute;
+    top: 35%;
+    right: 1%;
+    transform: translate(0, -50%);
+
+    .control-button {
+      height: 3rem;
+      width: 3rem;
+      background-color: transparent;
+      border: 3px solid #ffffff;
+      border-radius: 20%;
+      cursor: pointer;
+
+      color: #ffffff;
+    }
   }
 }
