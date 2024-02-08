@@ -25,6 +25,8 @@ function Cola() {
   const [showLightningTools, setShowLightningTools] = useState(false);
   const [showPolyTools, setShowPolyTools] = useState(false);
 
+  const [rotationState, setRotationState] = useState({ x: false, y: false, z: false });
+
   const orbitRef = useRef(); 
 
   const toggleTools = () => {
@@ -50,7 +52,7 @@ function Cola() {
   //Ön Bakış
   const setFrontCamera = () => {
     if (orbitRef.current) {
-      orbitRef.current.reset();
+      resetPosition();
       orbitRef.current.object.position.set(-1.5, 0, 4.5); // Üstten bakış için pozisyon
       orbitRef.current.object.lookAt(0, 0, 0); // Modelin merkezine bak
     }
@@ -59,7 +61,8 @@ function Cola() {
   // Üstten Bakış
   const setTopView = () => {
     if (orbitRef.current) {
-      orbitRef.current.reset();
+      resetPosition();
+
       orbitRef.current.object.position.set(0, 4.5, 0); // Üstten bakış için pozisyon
       orbitRef.current.object.lookAt(0, 0, 0); // Modelin merkezine bak
     }
@@ -68,7 +71,7 @@ function Cola() {
   // Arkadan Bakış
   const setBackView = () => {
     if (orbitRef.current) {
-      orbitRef.current.reset();
+      resetPosition();
       orbitRef.current.object.position.set(0, 0, -4.5); // Arkadan bakış için pozisyon
       orbitRef.current.object.lookAt(0, 0, 0); // Modelin merkezine bak
     }
@@ -77,7 +80,7 @@ function Cola() {
   // Aşağıdan Bakış
   const setBottomView = () => {
     if (orbitRef.current) {
-      orbitRef.current.reset();
+      resetPosition();
       orbitRef.current.object.position.set(0, -4.5, 0); // Aşağıdan bakış için pozisyon
       orbitRef.current.object.lookAt(0, 0, 0); // Modelin merkezine bak
     }
@@ -86,7 +89,7 @@ function Cola() {
   // Soldan Bakış
   const setLeftView = () => {
     if (orbitRef.current) {
-      orbitRef.current.reset();
+      resetPosition();
       orbitRef.current.object.position.set(-4.5, 0, 0); // Soldan bakış için pozisyon
       orbitRef.current.object.lookAt(0, 0, 0); // Modelin merkezine bak
     }
@@ -95,15 +98,44 @@ function Cola() {
   // Sağdan Bakış
   const setRightView = () => {
     if (orbitRef.current) {
-      orbitRef.current.reset();
+      resetPosition();
       orbitRef.current.object.position.set(4.5, 0, 0); // Sağdan bakış için pozisyon
       orbitRef.current.object.lookAt(0, 0, 0); // Modelin merkezine bak
     }
   };
 
+  const resetPosition = () => {
+    if (orbitRef.current) {
+      orbitRef.current.reset();
+      orbitRef.current.object.rotation.set(0, 0, 0); // Modelin dönüşünü sıfırla
+      orbitRef.current.object.position.set(-1.5, 0, 4.5); // Üstten bakış için pozisyon
+      orbitRef.current.object.lookAt(0, 0, 0); // Modelin merkezine bak
+    }
+  }
+
+  // Belirli bir eksendeki dönüşü başlat/durdur
+  const toggleRotation = (axis) => {
+    setRotationState(prevState => ({
+      x: axis === 'x' ? !prevState.x : false,
+      y: axis === 'y' ? !prevState.y : false,
+      z: axis === 'z' ? !prevState.z : false,
+    }));
+  };
+
   function ColaCanModel() {
+    const modelRef = useRef();
     const gltf = useGLTF("/~db596/assets/colacan.gltf", true); // Modelin yolu
-    return <primitive object={gltf.scene} />;
+
+    useFrame(() => {
+      if (modelRef.current) {
+        // Eğer rotationState'de belirli bir eksende dönüş varsa, o eksen boyunca döndür
+        modelRef.current.rotation.x += rotationState.x ? 0.01 : 0;
+        modelRef.current.rotation.y += rotationState.y ? 0.01 : 0;
+        modelRef.current.rotation.z += rotationState.z ? 0.01 : 0;
+      }
+    });
+
+    return <primitive ref={modelRef} object={gltf.scene} />;
   }
 
   return (
@@ -165,9 +197,10 @@ function Cola() {
             <button className="subButton" onClick={toggleAnimationTools}><FaRotate size={24} /></button>
             {showAnimationTools && (
               <div >
-                <button className="subChildButton"><FaXmark size={24} /></button>
-                <button className="subChildButton"><FaY size={24} /></button>
-                <button className="subChildButton"><FaZ size={24} /></button>
+                <button className="subChildButton" onClick={() => toggleRotation('x')}><FaXmark size={24} /></button>
+                <button className="subChildButton" onClick={() => toggleRotation('y')}><FaY size={24} /></button>
+                <button className="subChildButton" onClick={() => toggleRotation('z')}><FaZ size={24} /></button>
+                <button className="subChildButton" onClick={() => resetPosition()}>Reset</button>
               </div>
             )}
           </div>
