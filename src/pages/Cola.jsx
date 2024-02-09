@@ -6,8 +6,6 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { MeshStandardMaterial } from "three";
 
-// import { FaPlay } from "react-icons/fa6";
-// import { FaPause } from "react-icons/fa6";
 import { FaWrench } from "react-icons/fa6";
 
 import { FaVideo } from "react-icons/fa6";
@@ -187,7 +185,7 @@ function Cola() {
   }
 
   return (
-    <div className="cola overflow-hidden">
+    <div className="cola">
       <h1 className="background-text">Coca</h1>
       <h1 className="background-text">Cola</h1>
       {/* <ColaCanImg /> */}
