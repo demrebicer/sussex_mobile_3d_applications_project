@@ -12,6 +12,13 @@
 
   flex-direction: column;
 
+  .error {
+    color: #ff0000; // Hata mesajları için kırmızı renk
+    font-size: 0.875rem; // 14px
+    margin-top: 0.25rem; // 4px
+    font-weight: 400;
+  }
+
   .title {
     margin-top: 4rem;
     font-family: "Poppins";
@@ -26,7 +33,7 @@
 
   .form {
     width: 40rem;
-    height: 40rem;
+    // height: 55vh;
     background-color: #fcf8f8;
     border-radius: 2%;
 
