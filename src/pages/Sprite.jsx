@@ -20,8 +20,6 @@ import { FaPlus, FaMinus } from "react-icons/fa6";
 import { FaCube } from "react-icons/fa6";
 import { FaGripLines } from "react-icons/fa6";
 
-import spriteBottle from "../assets/images/spriteBottle.png";
-
 function Sprite() {
   const [showTools, setShowTools] = useState(false);
   const [showCameraTools, setShowCameraTools] = useState(false);
@@ -160,7 +158,7 @@ function Sprite() {
     setWireframe(true);
   };
 
-  function ColaCanModel() {
+  function SpriteBottleModel() {
     const gltf = useGLTF("/~db596/assets/spritebottle.gltf", true); // Modelin yolu
 
     useEffect(() => {
@@ -208,7 +206,7 @@ function Sprite() {
         <directionalLight position={[0, 0, -5]} intensity={lightningStatus == true ? 1 * lightningIntensity : 0} color={"#ffffff"} />{" "}
         {/* Arkadan gelen ışık */}
         <OrbitControls ref={orbitRef} enableZoom={false} />
-        <ColaCanModel />
+        <SpriteBottleModel />
       </Canvas>
 
       <div className="history-container">

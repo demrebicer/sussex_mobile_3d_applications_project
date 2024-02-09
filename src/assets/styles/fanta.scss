@@ -51,6 +51,17 @@
     height: 55rem; /* Görselin yüksekliği */
   }
 
+  .fanta-bottle-canvas {
+    position: absolute !important; /* Görseli belirli bir konuma sabitler */
+    width: 100% !important; /* Görselin genişliği */
+    height: 70rem !important;
+    top: 35% !important; /* Üstten %50 uzaklıkta */
+    left: 50% !important; /* Soldan %50 uzaklıkta */
+    transform: translate(-50%, -50%) !important; /* Görseli tam ortaya hizalar */
+    z-index: 10 !important; /* Yazının üstünde görünmesini sağlar */
+  }
+
+
   .history-container {
     display: flex;
     flex-direction: column;
@@ -99,5 +110,64 @@
     text-align: center;
 
     color: #ffffff;
+  }
+
+  .control-buttons {
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+
+    position: absolute;
+    top: 35%;
+    right: 2%;
+    transform: translate(0, -50%);
+
+    button {
+      height: 3rem;
+      width: 3rem;
+      background-color: transparent;
+      border: 3px solid #ffffff;
+      border-radius: 20%;
+      cursor: pointer;
+
+      color: #ffffff;
+    }
+
+    .additionalButtons {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 1rem;
+    }
+
+    .additionalButtons > div {
+      /* Targeting the direct div container of subChildButton */
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem; /* Adjust this value as needed for your desired gap */
+    }
+
+    .arrow-up {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid white;
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .wrench-icon {
+      transition: transform 0.3s ease;
+
+      &.rotate {
+        transform: rotate(15deg);
+      }
+    }
   }
 }
