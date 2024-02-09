@@ -119,7 +119,7 @@ function Sprite() {
 
     if (orbitRef.current) {
       orbitRef.current.reset();
-      orbitRef.current.object.position.set(15, 0, 35); // Üstten bakış için pozisyon
+      orbitRef.current.object.position.set(-15, 0, 35); // Üstten bakış için pozisyon
       orbitRef.current.object.lookAt(0, 0, 0); // Modelin merkezine bak
     }
 

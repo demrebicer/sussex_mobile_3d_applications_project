@@ -389,17 +389,17 @@
 	"materials":[{
 		"alphaMode":"BLEND",
 		"pbrMetallicRoughness":{
-			"baseColorFactor":[1.0,
-			1.0,
-			1.0,
-			0.1015625],
-			"metallicFactor":0.0,
-			"roughnessFactor":0.5
+			"baseColorFactor":[0.8,
+			0.8,
+			0.8,
+			0.3079417293233082],
+			"metallicFactor":0.74,
+			"roughnessFactor":0.14
 		},
 		"emissiveFactor":[0.0,
 		0.0,
 		0.0],
-		"name":"Mat",
+		"name":"Mat.1",
 		"doubleSided":true
 	},
 	{
