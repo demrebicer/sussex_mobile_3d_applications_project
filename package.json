@@ -1,6 +1,7 @@
 {
-  "name": "brickart",
+  "name": "colabrandwebsite",
   "private": true,
+  "homepage": "/~db596",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
