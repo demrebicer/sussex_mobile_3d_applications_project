@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../assets/styles/cola.scss";
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
+import { MeshStandardMaterial } from "three";
 
 // import { FaPlay } from "react-icons/fa6";
 // import { FaPause } from "react-icons/fa6";
@@ -18,9 +19,8 @@ import { FaXmark, FaY, FaZ, FaRepeat } from "react-icons/fa6";
 import { FaRegLightbulb } from "react-icons/fa6";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 
-
 import { FaCube } from "react-icons/fa6";
-
+import { FaGripLines } from "react-icons/fa6";
 
 function Cola() {
   const [showTools, setShowTools] = useState(false);
@@ -33,6 +33,8 @@ function Cola() {
 
   const [lightningStatus, setLightningStatus] = useState(true);
   const [lightningIntensity, setLightningIntensity] = useState(1);
+
+  const [wireframe, setWireframe] = useState(false); // Wireframe modunu kontrol etmek için state
 
   const modelRef = useRef();
   const orbitRef = useRef();
@@ -143,15 +145,34 @@ function Cola() {
   };
 
   const increaseIntensity = () => {
-    setLightningIntensity(prevIntensity => prevIntensity + 0.1);
+    setLightningIntensity((prevIntensity) => prevIntensity + 0.1);
   };
 
   const decreaseIntensity = () => {
-    setLightningIntensity(prevIntensity => Math.max(prevIntensity - 0.1, 0)); // Şiddetin 0'ın altına düşmemesini sağlayacak
+    setLightningIntensity((prevIntensity) => Math.max(prevIntensity - 0.1, 0)); // Şiddetin 0'ın altına düşmemesini sağlayacak
+  };
+
+  const setPolyMode = () => {
+    setWireframe(false);
+  };
+
+  const setWireframeMode = () => {
+    setWireframe(true);
   };
 
   function ColaCanModel() {
     const gltf = useGLTF("/~db596/assets/colacan.gltf", true); // Modelin yolu
+
+    useEffect(() => {
+      gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+          child.material = new MeshStandardMaterial({
+            ...child.material,
+            wireframe: wireframe, // State'e bağlı olarak wireframe özelliğini set et
+          });
+        }
+      });
+    }, [gltf.scene, wireframe]);
 
     useFrame(() => {
       if (modelRef.current) {
@@ -171,7 +192,7 @@ function Cola() {
       <h1 className="background-text">Cola</h1>
       {/* <ColaCanImg /> */}
       <Canvas className="cola-can-canvas" camera={{ position: [1.5, 0, 4.5], fov: 40 }}>
-        <ambientLight intensity={lightningStatus == true ? 1.5 * lightningIntensity : 0} /> 
+        <ambientLight intensity={lightningStatus == true ? 1.5 * lightningIntensity : 0} />
         <directionalLight position={[0, 5, 0]} intensity={lightningStatus == true ? 3 * lightningIntensity : 0} color={"#ffffff"} />{" "}
         {/* Üstten gelen ışık */}
         <directionalLight position={[0, -5, 0]} intensity={lightningStatus == true ? 3 * lightningIntensity : 0} color={"#ffffff"} />{" "}
@@ -288,22 +309,22 @@ function Cola() {
               <FaRegLightbulb size={24} />
             </button>
             {showLightningTools && (
-                 <div>
-                 <ReactTooltip id="toggle-lightning" effect="solid" content={lightningStatus ? "Turn Off Lightning" : "Turn On Lightning"} />
-                 <button className="subChildButton" data-tooltip-id="toggle-lightning" onClick={toggleLightning}>
-                   <FaRegLightbulb size={24} color={lightningStatus ? "yellow" : "white"} />
-                 </button>
-           
-                 <ReactTooltip id="increase-intensity" effect="solid" content="Increase Lightning Intensity" />
-                 <button className="subChildButton" data-tooltip-id="increase-intensity" onClick={increaseIntensity}>
-                   <FaPlus size={24} />
-                 </button>
-           
-                 <ReactTooltip id="decrease-intensity" effect="solid" content="Decrease Lightning Intensity" />
-                 <button className="subChildButton" data-tooltip-id="decrease-intensity" onClick={decreaseIntensity}>
-                   <FaMinus size={24} />
-                 </button>
-               </div>
+              <div>
+                <ReactTooltip id="toggle-lightning" effect="solid" content={lightningStatus ? "Turn Off Lightning" : "Turn On Lightning"} />
+                <button className="subChildButton" data-tooltip-id="toggle-lightning" onClick={toggleLightning}>
+                  <FaRegLightbulb size={24} color={lightningStatus ? "yellow" : "white"} />
+                </button>
+
+                <ReactTooltip id="increase-intensity" effect="solid" content="Increase Lightning Intensity" />
+                <button className="subChildButton" data-tooltip-id="increase-intensity" onClick={increaseIntensity}>
+                  <FaPlus size={24} />
+                </button>
+
+                <ReactTooltip id="decrease-intensity" effect="solid" content="Decrease Lightning Intensity" />
+                <button className="subChildButton" data-tooltip-id="decrease-intensity" onClick={decreaseIntensity}>
+                  <FaMinus size={24} />
+                </button>
+              </div>
             )}
           </div>
         )}
@@ -316,14 +337,14 @@ function Cola() {
             </button>
             {showPolyTools && (
               <div>
-                <button className="subChildButton">
-                  <FaXmark size={24} />
+                <ReactTooltip id="poly-mode" place="top" effect="solid" content="Switch to Poly Mode" />
+                <button className="subChildButton" data-tooltip-id="poly-mode" onClick={setPolyMode}>
+                  <FaCube size={24} />
                 </button>
-                <button className="subChildButton">
-                  <FaY size={24} />
-                </button>
-                <button className="subChildButton">
-                  <FaZ size={24} />
+
+                <ReactTooltip id="wireframe-mode" place="top" effect="solid" content="Switch to Wireframe Mode" />
+                <button className="subChildButton" data-tooltip-id="wireframe-mode" onClick={setWireframeMode}>
+                  <FaGripLines size={24} />
                 </button>
               </div>
             )}
