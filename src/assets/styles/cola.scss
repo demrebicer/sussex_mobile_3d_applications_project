@@ -120,7 +120,7 @@
       align-items: center;
       padding: 0;
 
-      .icon{
+      .icon {
         font-size: 3rem;
       }
 
@@ -164,11 +164,16 @@
 
 @media (max-width: 768px) {
   .cola {
-    margin-top: 6rem;
+    // margin-top: 6rem;
     flex-direction: column;
 
     align-items: center;
     justify-content: center;
+
+    .navbar {
+      position: relative;
+      width: 100vw;
+    }
 
     .background-text {
       margin-top: 7rem;
@@ -182,7 +187,7 @@
       position: relative !important;
     }
 
-    .title{
+    .title {
       margin-top: -20rem;
     }
 

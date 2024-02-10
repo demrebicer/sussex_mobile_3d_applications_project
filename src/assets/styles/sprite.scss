@@ -205,13 +205,17 @@
 
 @media (max-width: 768px) {
   .sprite {
-    margin-top: 6rem;
+    // margin-top: 6rem;
     flex-direction: column;
 
     align-items: center;
     justify-content: center;
 
     .navbar{
+      //navbarın sayfayı kaydırınca yukarı doğru gitmesini sağla
+      position: relative;
+      width: 100vw;
+
       background-color: #01c441;
     }
 

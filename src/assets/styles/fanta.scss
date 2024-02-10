@@ -183,7 +183,7 @@
 
 @media (max-width: 768px) {
   .fanta {
-    margin-top: 6rem;
+    // margin-top: 6rem;
     flex-direction: column;
 
     align-items: center;
@@ -191,6 +191,9 @@
 
     .navbar{
       background-color: #ff7600;
+
+      position: relative;
+      width: 100vw;
     }
 
     .text-container {
