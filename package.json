@@ -15,6 +15,7 @@
     "@react-three/fiber": "^8.15.15",
     "@types/three": "^0.160.0",
     "antd": "^5.14.0",
+    "axios": "^1.6.7",
     "bootstrap": "^5.3.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",

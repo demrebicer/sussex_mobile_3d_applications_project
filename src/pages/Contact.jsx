@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../assets/styles/contact.scss";
+import axios from "axios";
+
 import Navbar from "../components/navbar";
 
 function Contact() {
@@ -34,14 +36,16 @@ function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
       console.log("Validation failed");
       return;
     }
     console.log("Form data:", formData);
-    // Process form data here (e.g., send to an API)
+    
+    const response = await axios.post('https://users.sussex.ac.uk/~db596/backend/submit-form', formData);
+    console.log('Form submitted successfully', response.data);
   };
 
   return (

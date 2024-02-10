@@ -5,6 +5,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { MeshStandardMaterial } from "three";
+import axios from "axios";
+
 import Navbar from "../components/navbar";
 
 import { FaWrench } from "react-icons/fa6";
@@ -37,6 +39,15 @@ function Sprite() {
 
   const modelRef = useRef();
   const orbitRef = useRef();
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://users.sussex.ac.uk/~db596/backend").then((response) => {
+      console.log(response.data);
+      setData(response.data);
+    });
+  }, []);
 
   const toggleTools = () => {
     setShowTools(!showTools);
@@ -215,15 +226,7 @@ function Sprite() {
       <div className="history-container">
         <h1 className="title">Origin</h1>
         <h1 className="sub-title">Story</h1>
-        <p className="description">
-          Launched in 1961 as a response to the growing demand for a crisp, refreshing beverage that could rival the popularity of
-          traditional colas, Sprite emerged from the creative minds at The Coca-Cola Company. With its clear, lemon-lime flavor, Sprite
-          instantly captivated the taste buds of a generation looking for an invigorating soda experience. It was the answer to the
-          consumers' desire for something different, something that danced on the palate with a burst of citrus. Over the years, Sprite has
-          become synonymous with encouraging individuality and a bold spirit, often aligning itself with youth culture and music. As part of
-          its commitment to environmental sustainability, Sprite has continuously innovated its packaging solutions to reduce impact,
-          reflecting its dedication to refreshing not just its consumers but the planet as well.
-        </p>
+        <p className="description">{data.spriteDescription}</p>
       </div>
 
       <div className="control-buttons">

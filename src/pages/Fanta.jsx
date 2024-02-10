@@ -5,6 +5,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { MeshStandardMaterial } from "three";
+import axios from "axios";
+
 import Navbar from "../components/navbar";
 
 import { FaWrench } from "react-icons/fa6";
@@ -37,6 +39,15 @@ function Fanta() {
 
   const modelRef = useRef();
   const orbitRef = useRef();
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://users.sussex.ac.uk/~db596/backend").then((response) => {
+      console.log(response.data);
+      setData(response.data);
+    });
+  }, []);
 
   const toggleTools = () => {
     setShowTools(!showTools);
@@ -216,16 +227,7 @@ function Fanta() {
       <div className="history-container">
         <h1 className="title">Origin</h1>
         <h1 className="sub-title">Story</h1>
-        <p className="description">
-          The origins of Fanta trace back to the 1940s, amidst the challenges of wartime Germany. With a shortage of ingredients necessary
-          to produce Coca-Cola, resourceful local employees of The Coca-Cola Company were inspired to invent a new beverage. Utilizing
-          available ingredients, they created a fruit-flavored soda that burst with vibrant taste, giving birth to Fanta. The name, derived
-          from the German word "Fantasie," reflects the imaginative spirit and innovation behind its creation. Fanta quickly blossomed into
-          a global sensation, offering an assortment of flavors that celebrate the diversity and joy of fruit. Today, Fanta stands as a
-          testament to creativity and resilience, embodying the joy of play and the power of positive thinking. With a commitment to
-          sustainability and minimizing environmental impact, Fanta continues to enchant consumers worldwide with its colorful variety and
-          sparkling flavors, fostering moments of fun and escapism.
-        </p>
+        <p className="description">{data.fantaDescription}</p>
       </div>
 
       <div className="control-buttons">
