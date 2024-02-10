@@ -27,6 +27,6 @@ jobs:
         server: unix.sussex.ac.uk
         username: db596
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/*
+        local_path: ./dist/*
         remote_path: '/its/home/db596/public_html'
         sftp_only: true
