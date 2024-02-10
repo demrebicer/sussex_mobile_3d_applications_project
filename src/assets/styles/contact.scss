@@ -1,7 +1,7 @@
 .contact {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   align-items: flex-start;
   background-color: #830b0e;
   overflow: hidden;
@@ -95,7 +95,7 @@
 
 @media (max-width: 768px) {
   .contact {
-    margin-top: 3rem;
+    margin-top: 6rem;
 
     .title {
       font-size: 3rem;
@@ -107,6 +107,8 @@
     .form {
       width: 85%;
       border-radius: 2%;
+      margin-bottom: 3rem;
+
     }
   }
 }

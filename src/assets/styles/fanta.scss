@@ -11,7 +11,7 @@
 
   margin-top: 2rem;
 
-  .navbar{
+  .navbar {
     background-color: #ff7600;
   }
 
@@ -144,6 +144,10 @@
       border: 3px solid #ffffff;
       border-radius: 20%;
       cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
 
       color: #ffffff;
     }

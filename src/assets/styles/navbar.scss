@@ -32,11 +32,16 @@
     display: none;
     cursor: pointer;
     background-color: transparent; // Şeffaf arka plan
-    border: 2px solid #fff; // Beyaz kenarlık
+    border: 3px solid #fff; // Beyaz kenarlık
     border-radius: 5px; // Yuvarlatılmış kenarlar
     width: 3rem;
     height: 3rem;
     color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 
     @media (max-width: 768px) {
       display: block;
