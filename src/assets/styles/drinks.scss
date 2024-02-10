@@ -48,7 +48,7 @@
 
     .cola-img {
       width: 100%;
-      padding: 1rem;
+      padding: 2rem;
       object-fit: cover;
     }
 
@@ -79,7 +79,7 @@
 
     .sprite-img {
       width: 100%;
-      padding: 1rem;
+      padding: 2rem;
       object-fit: cover;
     }
 
@@ -110,7 +110,7 @@
 
     .fanta-img {
       width: 100%;
-      padding: 1rem;
+      padding: 2rem;
       object-fit: cover;
     }
 
@@ -120,6 +120,65 @@
       cursor: pointer;
       .sprite-img {
         filter: drop-shadow(10px 8px 55.9px rgba(0, 0, 0, 0.15));
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .drinks {
+    margin-top: 6rem;
+
+    .title {
+      font-size: 3rem;
+      line-height: 3rem;
+      margin-top: 3rem;
+    }
+
+    .drinks-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .cola-col {
+      margin-bottom: 2rem;
+
+      height: 10rem;
+      width: 10rem;
+
+      .cola-img {
+        width: 100%;
+        padding: 1rem;
+        object-fit: cover;
+      }
+    }
+
+    .sprite-col {
+      margin-bottom: 2rem;
+
+      height: 10rem;
+      width: 10rem;
+
+      .sprite-img {
+        width: 100%;
+        padding: 1rem;
+        object-fit: cover;
+      }
+    }
+
+    .fanta-col {
+      margin-bottom: 2rem;
+
+      height: 10rem;
+      width: 10rem;
+
+      .fanta-img {
+        width: 100%;
+        padding: 1rem;
+        object-fit: cover;
       }
     }
   }

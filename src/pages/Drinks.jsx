@@ -14,9 +14,9 @@ function Drinks() {
       <h1 className="title">Our Drinks</h1>
 
       {/* Create 1 row then 3 columns */}
-      <div className="row drinks-row">
+      <div className="drinks-row">
         <div
-          className="col-md-4 cola-col"
+          className="cola-col"
           onClick={() => {
             navigateTo("/~db596/cola");
           }}
@@ -24,7 +24,7 @@ function Drinks() {
           <img src={cola} alt="Cola" className="cola-img" />
         </div>
         <div
-          className="col-md-4 sprite-col"
+          className="sprite-col"
           onClick={() => {
             navigateTo("/~db596/sprite");
           }}
@@ -32,7 +32,7 @@ function Drinks() {
           <img src={sprite} alt="Sprite" className="sprite-img" />
         </div>
         <div
-          className="col-md-4 fanta-col"
+          className="fanta-col"
           onClick={() => {
             navigateTo("/~db596/fanta");
           }}
