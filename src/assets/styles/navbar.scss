@@ -1,66 +1,132 @@
 .navbar {
-    position: fixed;
-    top: 3rem;
-    left: 4rem;
-    /* Sol taraftan boşluk ekler */
-    right: 4rem;
-    /* Sağ taraftan boşluk ekler */
-    background-color: rgba(255, 255, 255, 0);
-    z-index: 1000;
-    height: 4.5rem;
-    width: calc(100% - 8rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-    .navbar-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+  height: 10rem;
 
-        .navbar-logo-img {
-            height: 3rem;
+  background-color: #830b0e;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-            //add color overlay white
-            filter: brightness(0) invert(1);
-            
-        }
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 
-        .navbar-links {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
+  .navbar-logo {
+    cursor: pointer;
+    
+    img {
+      height: 3rem;
 
-            margin-top: 0;
-            margin-bottom: 0;
-            /* Home */
-
-            .navbar-link {
-                transition: color 0.3s ease-in-out;
-                text-decoration: none;
-                font-family: 'Poppins';
-                font-style: normal;
-                font-weight: 500;
-                font-size: 1rem;
-                line-height: 2rem;
-                /* identical to box height */
-                letter-spacing: 0.05em;
-
-                cursor: pointer;
-
-                color: #FFFFFF;
-
-                &:hover {
-                   //without change color do something
-                    font-weight: 600;
-                    transition: color 0.3s ease-in-out;
-                }
-            }
-        }
+      //add color overlay white
+      filter: brightness(0) invert(1);
     }
+  }
 
+  .menu-toggle {
+    display: none !important;
+    cursor: pointer;
+    background-color: transparent; // Şeffaf arka plan
+    border: 3px solid #fff; // Beyaz kenarlık
+    border-radius: 5px; // Yuvarlatılmış kenarlar
+    width: 3rem;
+    height: 3rem;
+    color: #fff;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 
+    @media (max-width: 768px) {
+      display: block !important;
+    }
+  }
+
+  .navbar-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .navbar-link {
+      transition: color 0.3s ease-in-out;
+      text-decoration: none;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 2rem;
+      /* identical to box height */
+      letter-spacing: 0.05em;
+
+      cursor: pointer;
+
+      color: #ffffff;
+
+      &:hover {
+        //without change color do something
+        font-weight: 600;
+        transition: color 0.3s ease-in-out;
+      }
+    }
+    @media (max-width: 768px) {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      flex-direction: column;
+      background-color: #fff;
+      width: 100%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+      li {
+        text-align: center;
+      }
+
+      .navbar-link {
+        color: #000;
+        &:hover {
+          color: #830b0e;
+        }
+      }
+    }
+  }
+}
+
+// Menü açık olduğunda navbar-links'i göstermek için ekstra bir stil
+.navbar-links.active {
+  display: flex;
+  padding-left: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 6rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .navbar-links {
+    background-color: #830b0e !important;
+    gap: 0 !important;
+  }
+  .navbar-link{
+    width: 100%;
+    color: #fff !important;
+    padding: 1rem 0 !important;
+
+    border-top: 1px solid #fff;
+  }
 }

@@ -8,7 +8,6 @@ import "./assets/styles/index.scss";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Navbar />
       <RouterHandler />
     </BrowserRouter>
   </React.StrictMode>

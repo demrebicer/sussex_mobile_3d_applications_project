@@ -1,10 +1,12 @@
 .contact {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   align-items: flex-start;
   background-color: #830b0e;
   overflow: hidden;
+
+  margin-top: 3rem;
 
   display: flex;
   justify-content: center;
@@ -38,6 +40,7 @@
     border-radius: 2%;
 
     padding: 1rem;
+    margin-bottom: 3rem;
 
     .form-group {
       margin-bottom: 1.25rem; /* 20px */
@@ -88,27 +91,25 @@
       border-radius: 0.625rem; /* 10px */
       box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
     }
+  }
+}
 
-    @media (max-width: 48rem) {
-      /* 768px */
-      .container {
-        margin: 0 0.625rem; /* 10px */
-      }
+@media (max-width: 768px) {
+  .contact {
+    margin-top: 6rem;
 
-      button {
-        max-width: 12.5rem; /* 200px */
-      }
+    .title {
+      font-size: 3rem;
+      line-height: 3rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
     }
 
-    @media (max-width: 30rem) {
-      /* 480px */
-      body {
-        padding: 0.625rem; /* 10px */
-      }
+    .form {
+      width: 85%;
+      border-radius: 2%;
+      margin-bottom: 3rem;
 
-      .container {
-        padding: 0.9375rem; /* 15px */
-      }
     }
   }
 }

@@ -1,34 +1,35 @@
 import React, { useState } from "react";
 import "../assets/styles/contact.scss";
+import Navbar from "../components/navbar";
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    surname: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
     // Optionally clear errors
-    if (!!errors[name]) setErrors(prev => ({ ...prev, [name]: null }));
+    if (!!errors[name]) setErrors((prev) => ({ ...prev, [name]: null }));
   };
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.surname) newErrors.surname = 'Surname is required';
-    if (!formData.email) newErrors.email = 'Email is required';
-    if (!formData.phone) newErrors.phone = 'Phone is required';
-    if (!formData.message) newErrors.message = 'Message is required';
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.surname) newErrors.surname = "Surname is required";
+    if (!formData.email) newErrors.email = "Email is required";
+    if (!formData.phone) newErrors.phone = "Phone is required";
+    if (!formData.message) newErrors.message = "Message is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -36,15 +37,17 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) {
-      console.log('Validation failed');
+      console.log("Validation failed");
       return;
     }
-    console.log('Form data:', formData);
+    console.log("Form data:", formData);
     // Process form data here (e.g., send to an API)
   };
 
   return (
     <div className="contact">
+      <Navbar />
+
       <h1 className="title">Contact Us</h1>
 
       <div className="form">

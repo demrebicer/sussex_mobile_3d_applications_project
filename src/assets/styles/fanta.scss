@@ -9,6 +9,18 @@
 
   flex-direction: column;
 
+  margin-top: 2rem;
+
+  .navbar {
+    background-color: #ff7600;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-links {
+      background-color: #ff7600 !important;
+    }
+  }
+
   .text-container {
     display: flex;
     flex-direction: column;
@@ -60,7 +72,6 @@
     transform: translate(-50%, -50%) !important; /* Görseli tam ortaya hizalar */
     z-index: 10 !important; /* Yazının üstünde görünmesini sağlar */
   }
-
 
   .history-container {
     display: flex;
@@ -133,6 +144,10 @@
       border: 3px solid #ffffff;
       border-radius: 20%;
       cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
 
       color: #ffffff;
     }
@@ -168,6 +183,53 @@
       &.rotate {
         transform: rotate(15deg);
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .fanta {
+    margin-top: 6rem;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    .text-container {
+      position: absolute;
+      top: 5%;
+      left: 0;
+      transform: none;
+      margin-top: 2rem;
+    }
+
+    .background-text {
+      font-size: 4rem !important;
+      line-height: 4rem !important;
+      letter-spacing: 0.5em !important;
+    }
+
+    .fanta-bottle-canvas {
+      margin-top: 16rem;
+      height: 40rem !important;
+      position: relative !important;
+    }
+
+    .title {
+      margin-top: -105rem;
+    }
+
+    .sub-title {
+      font-size: 7rem;
+    }
+
+    .description {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .control-buttons {
+      top: 20%;
     }
   }
 }

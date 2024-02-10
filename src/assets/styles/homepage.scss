@@ -6,113 +6,147 @@
   background-color: #830b0e;
   overflow: hidden;
 
-  .title {
-    /* TASTE THE */
+  // margin-top: 10rem;
 
-    position: absolute;
-    width: 26rem;
-    height: 7.5rem;
-    left: 4rem;
-    top: 23rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center !important;
+  justify-content: space-between !important;
 
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 5rem;
-    line-height: 7.5rem;
-    text-transform: uppercase;
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 
-    color: #ffffff;
+    height: 100%;
+    width: 45%;
+
+    // margin-top: 15rem;
+    margin-left: 4rem;
+
+    .title {
+      /* TASTE THE */
+
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 5rem;
+      line-height: 4rem;
+      text-transform: uppercase;
+
+      color: #ffffff;
+    }
+
+    .sub-title {
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 9rem;
+      line-height: 7.5rem;
+      text-transform: uppercase;
+
+      color: #ffffff;
+    }
+
+    .description {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 2rem;
+
+      padding-left: 0.5rem;
+
+      // width: 45%;
+
+      color: #ffffff;
+    }
+
+    .view-all-products-btn {
+      color: #000;
+
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+
+      border: none;
+
+      border-radius: 2rem;
+    }
   }
 
-  .sub-title {
-    position: absolute;
-    width: 26rem;
-    height: 7.5rem;
-    left: 4rem;
-    top: 29rem;
-
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 9rem;
-    line-height: 7.5rem;
-    text-transform: uppercase;
-
-    color: #ffffff;
-  }
-
-  .description {
-    position: absolute;
-    width: 50rem;
-    height: 12rem;
-    left: 4.5rem;
-    top: 37rem;
-
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1rem;
-    line-height: 2rem;
-
-    color: #ffffff;
-  }
-
-  .view-all-products-btn {
-    color: #000;
-
-    position: absolute;
-    width: 13rem;
-    height: 3rem;
-    left: 4rem;
-    top: 44rem;
-
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 2rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-
-    border: none;
-
-    border-radius: 2rem;
-  }
-
-  .cola-can-canvas {
-    position: absolute;
-    width: 35rem;
-    height: 35rem;
-    left: 40rem;
-    top: 5rem;
+  .cola-can-container{
+    height: 100%;
+    width: 55%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
   }
 
   .cola-can {
-    /* CokeCan_1334x 1 */
-
-    position: absolute;
     width: 35rem;
     height: 35rem;
-    left: 75rem;
-    top: 25%;
   }
+}
 
-  .play-pause-btn {
-    position: absolute;
-    left: 40rem;
-    top: 15rem;
+@media (max-width: 768px) {
+  .homepage {
+    margin-top: 6rem;
+    flex-direction: column-reverse;
 
-    width: 10rem;
-    height: 3rem;
-  }
-  .top-view-btn {
-    position: absolute;
-    left: 50rem;
-    top: 15rem;
+    align-items: center;
+    justify-content: center;
 
-    width: 10rem;
-    height: 3rem;
+    .text-container {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      margin-left: 0;
+      padding: 1rem;
+
+      .title {
+        font-size: 3rem;
+        line-height: 3rem;
+      }
+
+      .sub-title {
+        font-size: 5rem;
+        line-height: 5rem;
+      }
+
+      .description {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+
+      .view-all-products-btn {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    .cola-can-container {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cola-can {
+      width: 25rem;
+      height: 25rem;
+    }
   }
 }
