@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { MeshStandardMaterial } from "three";
+import Navbar from "../components/navbar";
 
 import { FaWrench } from "react-icons/fa6";
 
@@ -186,6 +187,8 @@ function Sprite() {
 
   return (
     <div className="sprite">
+      <Navbar />
+
       <div className="text-container">
         <h1 className="background-text-left">Spr</h1>
         <h1 className="background-text-right">ite</h1>

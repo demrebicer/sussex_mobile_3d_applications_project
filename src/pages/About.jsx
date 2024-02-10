@@ -2,10 +2,13 @@ import React, { useRef, useState } from "react";
 import "../assets/styles/about.scss";
 import about from "../assets/images/about.png";
 import aboutmobile from "../assets/images/aboutmobile.jpg";
+import Navbar from "../components/navbar";
 
 function About() {
   return (
     <div className="about">
+      <Navbar />
+
       <div className="text-container">
         <h1 className="title">Our</h1>
         <h1 className="sub-title">History</h1>

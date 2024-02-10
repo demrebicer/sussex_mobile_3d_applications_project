@@ -9,6 +9,18 @@
 
   flex-direction: column;
 
+  margin-top: 2rem;
+
+  .navbar {
+    background-color: #01c441;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-links {
+      background-color: #01c441 !important;
+    }
+  }
+
   .text-container {
     display: flex;
     flex-direction: row;
@@ -82,7 +94,7 @@
     z-index: 10 !important; /* Yazının üstünde görünmesini sağlar */
   }
 
-  .history-container{
+  .history-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,6 +200,63 @@
       &.rotate {
         transform: rotate(15deg);
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sprite {
+    margin-top: 6rem;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    .text-container {
+      top: 15%;
+      left: 30%;
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .background-text-left {
+      margin-left: 8rem !important;
+      text-align: center;
+      font-size: 10rem !important;
+      line-height: 10rem !important;
+      letter-spacing: 0.23em !important;
+    }
+
+    .background-text-right {
+      margin-right: -1rem !important;
+      font-size: 10rem !important;
+      line-height: 10rem !important;
+      letter-spacing: 0.23em;
+    }
+
+    .sprite-bottle-canvas {
+      margin-top: 15rem;
+      height: 40rem !important;
+      position: relative !important;
+    }
+
+    .title {
+      margin-top: -100rem;
+    }
+
+    .sub-title {
+      font-size: 7rem;
+    }
+
+    .description {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .control-buttons {
+      top: 16%;
     }
   }
 }

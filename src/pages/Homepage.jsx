@@ -4,6 +4,7 @@ import colaCan from "../assets/images/colaCan.png";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/navbar";
 
 function ColaCanModel() {
   const gltf = useGLTF("/~db596/assets/colacan.gltf", true); // Modelin yolu
@@ -15,6 +16,8 @@ function Homepage() {
 
   return (
     <div className="homepage">
+      <Navbar />
+
       <div className="text-container">
         <h1 className="title">Taste The</h1>
         <h1 className="sub-title">Feeling</h1>

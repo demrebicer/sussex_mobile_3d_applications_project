@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "../assets/styles/drinks.scss";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/navbar";
 
 import cola from "../assets/images/drinks-cola.png";
 import sprite from "../assets/images/drinks-sprite.png";
@@ -11,6 +12,8 @@ function Drinks() {
 
   return (
     <div className="drinks">
+      <Navbar />
+
       <h1 className="title">Our Drinks</h1>
 
       {/* Create 1 row then 3 columns */}
