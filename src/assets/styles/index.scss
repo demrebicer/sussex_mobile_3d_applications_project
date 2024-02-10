@@ -1,4 +1,8 @@
-:root{
-    background-color: #830b0e;
-    overflow-x: hidden;
+:root {
+  overflow-x: hidden;
+}
+
+html,
+body {
+  overscroll-behavior-y: none;
 }

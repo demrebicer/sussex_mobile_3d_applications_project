@@ -9,12 +9,6 @@
 
   flex-direction: column;
 
-  margin-top: 2rem;
-
-  .navbar {
-    background-color: #ff7600;
-  }
-
   @media (max-width: 768px) {
     .navbar-links {
       background-color: #ff7600 !important;
