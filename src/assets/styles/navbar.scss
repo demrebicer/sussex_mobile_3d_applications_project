@@ -18,6 +18,8 @@
   padding-right: 4rem;
 
   .navbar-logo {
+    cursor: pointer;
+    
     img {
       height: 3rem;
 
@@ -105,7 +107,21 @@
 
 @media (max-width: 768px) {
   .navbar {
+    height: 6rem;
+
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .navbar-links {
+    background-color: #830b0e !important;
+    gap: 0 !important;
+  }
+  .navbar-link{
+    width: 100%;
+    color: #fff !important;
+    padding: 1rem 0 !important;
+
+    border-top: 1px solid #fff;
   }
 }

@@ -10,9 +10,14 @@ const Navbar = () => {
 
   const toggleMenu = () => setMenuActive(!menuActive);
 
+  function navigate(path) {
+    setMenuActive(false);
+    navigateTo(path);
+  }
+
   return (
     <nav className="navbar">
-      <div className="navbar-logo" onClick={() => navigateTo("/~db596")}>
+      <div className="navbar-logo" onClick={() => navigate("/~db596")}>
         <img src={colaLogo} alt="Cola Logo" />
       </div>
       <button className="menu-toggle" onClick={toggleMenu}>
@@ -20,10 +25,10 @@ const Navbar = () => {
         {menuActive ? <FaTimes size={20} /> : <FaBars size={20}/>}
       </button>
       <ul className={`navbar-links ${menuActive ? "active" : ""}`}>
-        <li className="navbar-link" onClick={() => navigateTo("/~db596")}>Homepage</li>
-        <li className="navbar-link" onClick={() => navigateTo("/~db596/about")}>About</li>
-        <li className="navbar-link" onClick={() => navigateTo("/~db596/drinks")}>Drinks</li>
-        <li className="navbar-link" onClick={() => navigateTo("/~db596/contact")}>Contact</li>
+        <li className="navbar-link" onClick={() => navigate("/~db596")}>Homepage</li>
+        <li className="navbar-link" onClick={() => navigate("/~db596/about")}>About</li>
+        <li className="navbar-link" onClick={() => navigate("/~db596/drinks")}>Drinks</li>
+        <li className="navbar-link" onClick={() => navigate("/~db596/contact")}>Contact</li>
       </ul>
     </nav>
   );
