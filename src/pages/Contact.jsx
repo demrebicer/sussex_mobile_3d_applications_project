@@ -14,6 +14,7 @@ function Contact() {
   });
 
   const [errors, setErrors] = useState({});
+  const [submissionStatus, setSubmissionStatus] = useState(null); // New state to track the submission status
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +22,6 @@ function Contact() {
       ...prevState,
       [name]: value,
     }));
-    // Optionally clear errors
     if (!!errors[name]) setErrors((prev) => ({ ...prev, [name]: null }));
   };
 
@@ -42,10 +42,15 @@ function Contact() {
       console.log("Validation failed");
       return;
     }
-    console.log("Form data:", formData);
-    
-    const response = await axios.post('https://users.sussex.ac.uk/~db596/backend/submit-form', formData);
-    console.log('Form submitted successfully', response.data);
+    try {
+      const response = await axios.post('https://users.sussex.ac.uk/~db596/backend/submit-form', formData);
+      console.log('Form submitted successfully', response.data);
+      setSubmissionStatus("Your message has been sent successfully."); // Update submission status
+      setFormData({ name: "", surname: "", email: "", phone: "", message: "" }); // Reset form data
+    } catch (error) {
+      console.error('There was an error submitting the form', error);
+      setSubmissionStatus("There was an unknown error, please try again later."); // Update submission status with error message
+    }
   };
 
   return (
@@ -85,6 +90,7 @@ function Contact() {
           </div>
           <button type="submit">Send</button>
         </form>
+        {submissionStatus && <p className={submissionStatus.startsWith("Your") ? "success-message text-center pt-3" : "error-message text-center pt-3"}>{submissionStatus}</p>}
       </div>
     </div>
   );
