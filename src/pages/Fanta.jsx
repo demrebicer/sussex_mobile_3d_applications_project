@@ -187,9 +187,9 @@ function Fanta() {
     useFrame(() => {
       if (modelRef.current) {
         // Eğer rotationState'de belirli bir eksende dönüş varsa, o eksen boyunca döndür
-        modelRef.current.rotation.x += rotationState.x ? 0.01 : 0;
-        modelRef.current.rotation.y += rotationState.y ? 0.01 : 0;
-        modelRef.current.rotation.z += rotationState.z ? 0.01 : 0;
+        modelRef.current.rotation.x += rotationState.x ? 0.006 : 0;
+        modelRef.current.rotation.y += rotationState.y ? 0.006 : 0;
+        modelRef.current.rotation.z += rotationState.z ? 0.006 : 0;
       }
     });
 
