@@ -4,7 +4,7 @@ import "../assets/styles/sprite.scss";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { MeshStandardMaterial } from "three";
+import { EdgesGeometry, LineSegments, LineBasicMaterial, MeshStandardMaterial } from 'three';
 import axios from "axios";
 
 import Navbar from "../components/navbar";
@@ -174,15 +174,25 @@ function Sprite() {
     const gltf = useGLTF("/~db596/assets/spritebottle.glb", true); // Modelin yolu
 
     useEffect(() => {
-      gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-          child.material = new MeshStandardMaterial({
-            ...child.material,
-            wireframe: wireframe, // State'e bağlı olarak wireframe özelliğini set et
-          });
-        }
-      });
-    }, [gltf.scene, wireframe]);
+      if (gltf.scene) {
+        gltf.scene.traverse((child) => {
+          if (child.isMesh) {
+            // Çapraz çizgiler yerine sadece kenarları göstermek için EdgesGeometry kullan
+            const edges = new EdgesGeometry(child.geometry);
+            const line = new LineSegments(edges, new LineBasicMaterial({ color: 0xffffff }));
+            child.add(line); // Orijinal mesh'e kenar çizgilerini ekle
+  
+            // Eğer wireframe modu açıksa, orijinal mesh'in malzemesini değiştir
+            if (wireframe) {
+              child.material = new MeshStandardMaterial({
+                ...child.material,
+                wireframe: true
+              });
+            }
+          }
+        });
+      }
+    }, [gltf, wireframe]);
 
     useFrame(() => {
       if (modelRef.current) {
