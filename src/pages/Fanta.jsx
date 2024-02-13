@@ -174,25 +174,44 @@ function Fanta() {
     const gltf = useGLTF("/~db596/assets/fantabottle.gltf", true); // Modelin yolu
 
     useEffect(() => {
-      if (gltf.scene) {
-        gltf.scene.traverse((child) => {
-          if (child.isMesh) {
-            // Çapraz çizgiler yerine sadece kenarları göstermek için EdgesGeometry kullan
-            const edges = new EdgesGeometry(child.geometry);
-            const line = new LineSegments(edges, new LineBasicMaterial({ color: 0xffffff }));
-            child.add(line); // Orijinal mesh'e kenar çizgilerini ekle
-  
-            // Eğer wireframe modu açıksa, orijinal mesh'in malzemesini değiştir
-            if (wireframe) {
+      gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+          if (wireframe) {
+            // Malzemeyi sakla ve şeffaf bir malzemeyle değiştir
+            if (!child.userData.originalMaterial) {
+              child.userData.originalMaterial = child.material;
               child.material = new MeshStandardMaterial({
-                ...child.material,
-                wireframe: true
+                opacity: 0,
+                transparent: true,
               });
             }
+
+            // Eğer daha önce eklenmemişse, kenar çizgilerini oluştur ve ekle
+            if (!child.userData.edges) {
+              const edgesGeometry = new EdgesGeometry(child.geometry);
+              const edgesMaterial = new LineBasicMaterial({ color: 0xffffff });
+              const edges = new LineSegments(edgesGeometry, edgesMaterial);
+              child.add(edges);
+              child.userData.edges = edges;
+            }
+          } else {
+            // Wireframe modu kapalıysa, orijinal malzemeyi geri yükle
+            if (child.userData.originalMaterial) {
+              child.material = child.userData.originalMaterial;
+              delete child.userData.originalMaterial;
+            }
+
+            // Kenar çizgilerini kaldır
+            const edges = child.userData.edges;
+            if (edges) {
+              child.remove(edges);
+              delete child.userData.edges;
+            }
           }
-        });
-      }
-    }, [gltf, wireframe]);
+        }
+      });
+    }, [wireframe, gltf.scene]);
+    
     useFrame(() => {
       if (modelRef.current) {
         // Eğer rotationState'de belirli bir eksende dönüş varsa, o eksen boyunca döndür
