@@ -6,6 +6,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { EdgesGeometry, LineSegments, LineBasicMaterial, MeshStandardMaterial } from "three";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 import Navbar from "../components/navbar";
 
@@ -39,6 +40,8 @@ function Cola() {
 
   const modelRef = useRef();
   const orbitRef = useRef();
+
+  const location = useLocation();
 
   const [data, setData] = useState([]);
 
@@ -246,7 +249,7 @@ function Cola() {
         <directionalLight position={[0, 0, -5]} intensity={lightningStatus == true ? 1 * lightningIntensity : 0} color={"#ffffff"} />{" "}
         {/* Arkadan gelen ışık */}
         <OrbitControls ref={orbitRef} enableZoom={false} />
-        <ColaCanModel />
+        <ColaCanModel key={location.pathname}/>
       </Canvas>
 
       <h1 className="title">Origin</h1>
