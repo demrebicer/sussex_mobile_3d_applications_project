@@ -45,6 +45,8 @@ function Cola() {
 
   const [data, setData] = useState([]);
 
+  const gltf = useGLTF("/~db596/assets/colacancompressed.glb", true); // Modelin yolu
+
   useEffect(() => {
     axios.get("https://users.sussex.ac.uk/~db596/backend").then((response) => {
       console.log(response.data);
@@ -174,7 +176,6 @@ function Cola() {
   };
 
   function ColaCanModel() {
-    const gltf = useGLTF("/~db596/assets/colacancompressed.glb", true); // Modelin yolu
 
     useEffect(() => {
       gltf.scene.traverse((child) => {

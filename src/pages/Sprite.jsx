@@ -45,6 +45,8 @@ function Sprite() {
 
   const [data, setData] = useState([]);
 
+  const gltf = useGLTF("/~db596/assets/spritebottlecompressed.glb", true); // Modelin yolu
+
   useEffect(() => {
     axios.get("https://users.sussex.ac.uk/~db596/backend").then((response) => {
       console.log(response.data);
@@ -174,7 +176,6 @@ function Sprite() {
   };
 
   function SpriteBottleModel() {
-    const gltf = useGLTF("/~db596/assets/spritebottlecompressed.glb", true); // Modelin yolu
 
     useEffect(() => {
       gltf.scene.traverse((child) => {
