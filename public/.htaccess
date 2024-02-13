@@ -6,8 +6,14 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Backend yolu için istisna - Bu yola yapılan isteklerin doğrudan işlenmesini sağlar
+  RewriteCond %{REQUEST_URI} ^/~db596/backend
+  RewriteRule ^ - [L]
+
+  # index.html için özel kural
   RewriteRule ^index\.html$ - [L]
 
+  # Mevcut dosya ve dizinler haricindeki tüm istekleri index.html'e yönlendir
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /~db596/index.html [L]
