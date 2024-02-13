@@ -4,9 +4,8 @@ import "../assets/styles/fanta.scss";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { EdgesGeometry, LineSegments, LineBasicMaterial, MeshStandardMaterial } from "three";
+import { EdgesGeometry, LineSegments, LineBasicMaterial, MeshStandardMaterial } from 'three';
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 
 import Navbar from "../components/navbar";
 
@@ -41,11 +40,7 @@ function Fanta() {
   const modelRef = useRef();
   const orbitRef = useRef();
 
-  const location = useLocation();
-
   const [data, setData] = useState([]);
-
-  const gltf = useGLTF("/~db596/assets/fantabottlecompressed.glb", true); // Modelin yolu
 
   useEffect(() => {
     axios.get("https://users.sussex.ac.uk/~db596/backend").then((response) => {
@@ -176,6 +171,8 @@ function Fanta() {
   };
 
   function FantaBottleModel() {
+    const gltf = useGLTF("/~db596/assets/fantabottlecompressed.glb", true); // Modelin yolu
+
     useEffect(() => {
       gltf.scene.traverse((child) => {
         if (child.isMesh) {
@@ -214,7 +211,7 @@ function Fanta() {
         }
       });
     }, [wireframe, gltf.scene]);
-
+    
     useFrame(() => {
       if (modelRef.current) {
         // Eğer rotationState'de belirli bir eksende dönüş varsa, o eksen boyunca döndür
@@ -252,7 +249,7 @@ function Fanta() {
         <directionalLight position={[0, 0, -5]} intensity={lightningStatus == true ? 1 * lightningIntensity : 0} color={"#ffffff"} />{" "}
         {/* Arkadan gelen ışık */}
         <OrbitControls ref={orbitRef} enableZoom={false} />
-        <FantaBottleModel key={location.pathname} />
+        <FantaBottleModel />
       </Canvas>
 
       <div className="history-container">

@@ -6,7 +6,6 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { EdgesGeometry, LineSegments, LineBasicMaterial, MeshStandardMaterial } from 'three';
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 
 import Navbar from "../components/navbar";
 
@@ -41,11 +40,7 @@ function Sprite() {
   const modelRef = useRef();
   const orbitRef = useRef();
 
-  const location = useLocation();
-
   const [data, setData] = useState([]);
-
-  const gltf = useGLTF("/~db596/assets/spritebottlecompressed.glb", true); // Modelin yolu
 
   useEffect(() => {
     axios.get("https://users.sussex.ac.uk/~db596/backend").then((response) => {
@@ -176,6 +171,7 @@ function Sprite() {
   };
 
   function SpriteBottleModel() {
+    const gltf = useGLTF("/~db596/assets/spritebottlecompressed.glb", true); // Modelin yolu
 
     useEffect(() => {
       gltf.scene.traverse((child) => {
@@ -252,7 +248,7 @@ function Sprite() {
         <directionalLight position={[0, 0, -5]} intensity={lightningStatus == true ? 1 * lightningIntensity : 0} color={"#ffffff"} />{" "}
         {/* Arkadan gelen ışık */}
         <OrbitControls ref={orbitRef} enableZoom={false} />
-        <SpriteBottleModel key={location.pathname}/>
+        <SpriteBottleModel />
       </Canvas>
 
       <div className="history-container">
