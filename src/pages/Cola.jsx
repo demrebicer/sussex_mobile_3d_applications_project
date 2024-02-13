@@ -171,7 +171,7 @@ function Cola() {
   };
 
   function ColaCanModel() {
-    const gltf = useGLTF("/~db596/assets/colacan.glb", true); // Modelin yolu
+    const gltf = useGLTF("/~db596/assets/colacancompressed.glb", true); // Modelin yolu
 
     useEffect(() => {
       gltf.scene.traverse((child) => {

@@ -171,7 +171,7 @@ function Sprite() {
   };
 
   function SpriteBottleModel() {
-    const gltf = useGLTF("/~db596/assets/spritebottle.glb", true); // Modelin yolu
+    const gltf = useGLTF("/~db596/assets/spritebottlecompressed.glb", true); // Modelin yolu
 
     useEffect(() => {
       gltf.scene.traverse((child) => {

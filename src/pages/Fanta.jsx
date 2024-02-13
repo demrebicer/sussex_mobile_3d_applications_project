@@ -171,7 +171,7 @@ function Fanta() {
   };
 
   function FantaBottleModel() {
-    const gltf = useGLTF("/~db596/assets/fantabottle.glb", true); // Modelin yolu
+    const gltf = useGLTF("/~db596/assets/fantabottlecompressed.glb", true); // Modelin yolu
 
     useEffect(() => {
       gltf.scene.traverse((child) => {
