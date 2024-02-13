@@ -10,6 +10,10 @@ import fanta from "../assets/images/drinks-fanta.png";
 function Drinks() {
   const navigateTo = useNavigate();
 
+  function navigateAndRefresh(url) {
+    window.location.href = url;
+  }
+
   return (
     <div className="drinks">
       <Navbar />
@@ -21,7 +25,7 @@ function Drinks() {
         <div
           className="cola-col"
           onClick={() => {
-            navigateTo("/~db596/cola");
+            navigateAndRefresh("/~db596/cola");
           }}
         >
           <img src={cola} alt="Cola" className="cola-img" />
@@ -29,7 +33,7 @@ function Drinks() {
         <div
           className="sprite-col"
           onClick={() => {
-            navigateTo("/~db596/sprite");
+            navigateAndRefresh("/~db596/sprite");
           }}
         >
           <img src={sprite} alt="Sprite" className="sprite-img" />
@@ -37,7 +41,7 @@ function Drinks() {
         <div
           className="fanta-col"
           onClick={() => {
-            navigateTo("/~db596/fanta");
+            navigateAndRefresh("/~db596/fanta");
           }}
         >
           <img src={fanta} alt="Fanta" className="fanta-img" />
