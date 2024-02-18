@@ -43,7 +43,7 @@ function Contact() {
       return;
     }
     try {
-      const response = await axios.post('https://users.sussex.ac.uk/~db596/backend/submit-form', formData);
+      const response = await axios.post('https://users.sussex.ac.uk/~db596/backend/add-contact-submission', formData);
       console.log('Form submitted successfully', response.data);
       setSubmissionStatus("Your message has been sent successfully."); // Update submission status
       setFormData({ name: "", surname: "", email: "", phone: "", message: "" }); // Reset form data
