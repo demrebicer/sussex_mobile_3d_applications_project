@@ -198,7 +198,7 @@
 
     .text-container {
       position: absolute;
-      top: 5%;
+      top: 6%;
       left: 0;
       transform: none;
       margin-top: 2rem;
@@ -206,7 +206,7 @@
 
     .background-text {
       font-size: 4rem !important;
-      line-height: 4rem !important;
+      line-height: 8rem !important;
       letter-spacing: 0.5em !important;
     }
 
@@ -230,7 +230,11 @@
     }
 
     .control-buttons {
-      top: 20%;
+      top: 24%;
+    }
+
+    .history-container{
+      margin-bottom: -22rem;
     }
   }
 }

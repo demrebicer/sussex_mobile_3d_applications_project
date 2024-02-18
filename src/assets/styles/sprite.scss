@@ -220,7 +220,7 @@
     }
 
     .text-container {
-      top: 15%;
+      top: 20%;
       left: 30%;
 
       flex-direction: column;
@@ -263,7 +263,11 @@
     }
 
     .control-buttons {
-      top: 16%;
+      top: 24%;
+    }
+
+    .history-container{
+      margin-bottom: -22rem;
     }
   }
 }
