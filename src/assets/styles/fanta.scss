@@ -189,7 +189,7 @@
     align-items: center;
     justify-content: center;
 
-    .navbar{
+    .navbar {
       background-color: #ff7600;
 
       position: relative;
@@ -233,8 +233,28 @@
       top: 24%;
     }
 
-    .history-container{
+    .history-container {
       margin-bottom: -22rem;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fanta {
+    .background-text {
+      letter-spacing: 0.25em !important;
+    }
+
+    .text-container{
+      margin-top: -4rem;
+    }
+
+    .fanta-bottle-canvas{
+      margin-top: -4rem;
+    }
+
+    .title {
+      margin-top: -5rem;
     }
   }
 }

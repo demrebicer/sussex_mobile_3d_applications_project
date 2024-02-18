@@ -16,8 +16,6 @@ function Homepage() {
 
   return (
     <div className="homepage">
-      <Navbar />
-
       <div className="text-container">
         <h1 className="title">Taste The</h1>
         <h1 className="sub-title">Feeling</h1>
@@ -38,6 +36,8 @@ function Homepage() {
       <div className="cola-can-container">
         <img className="cola-can" src={colaCan} alt="Cola Can" />
       </div>
+
+      <Navbar />
     </div>
   );
 }

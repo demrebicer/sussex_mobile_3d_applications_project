@@ -7,8 +7,6 @@ import Navbar from "../components/navbar";
 function About() {
   return (
     <div className="about">
-      <Navbar />
-
       <div className="text-container">
         <h1 className="title">Our</h1>
         <h1 className="sub-title">History</h1>
@@ -26,6 +24,8 @@ function About() {
         <img className="about-img" src={about} alt="About" />
         <img className="about-img-mobile" src={aboutmobile} alt="About" />
       </div>
+
+      <Navbar />
     </div>
   );
 }

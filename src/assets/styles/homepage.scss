@@ -150,3 +150,61 @@
     }
   }
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .homepage {
+    flex-direction: column-reverse;
+
+    align-items: center;
+    justify-content: center;
+
+    .text-container {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      margin-left: 0;
+      padding: 1rem;
+
+      margin-top: -5rem;
+
+      .title {
+        margin-top: 0;
+        font-size: 3rem;
+        line-height: 3rem;
+      }
+
+      .sub-title {
+        font-size: 5rem;
+        line-height: 5rem;
+      }
+
+      .description {
+        margin-top: 1rem;
+        margin-bottom: 2rem !important;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding-left: 6rem !important;
+        padding-right: 6rem !important;
+      }
+
+      .view-all-products-btn {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    .cola-can-container {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cola-can {
+      margin-top: 4rem;
+      width: 40rem;
+      height: 40rem;
+    }
+  }
+}

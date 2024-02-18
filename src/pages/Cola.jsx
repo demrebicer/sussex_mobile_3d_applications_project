@@ -227,7 +227,7 @@ function Cola() {
   return (
     <div className="cola">
       <Navbar />
-
+      
       <h1 className="background-text">Coca</h1>
       <h1 className="background-text">Cola</h1>
       {/* <ColaCanImg /> */}
