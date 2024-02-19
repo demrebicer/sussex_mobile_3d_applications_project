@@ -141,14 +141,15 @@
 
     align-items: center;
     justify-content: center;
+    display: flex;
 
     .img-container {
-      height: 100%;
+      height: auto;
       width: 100%;
       display: flex;
       justify-content: start;
       align-items: start;
-      margin-top: 4rem;
+      // margin-top: 4rem;
       // margin-bottom: -25rem;
 
       .about-img {
@@ -173,7 +174,7 @@
       margin-left: 0;
       padding: 1rem;
 
-      margin-top: -5rem;
+      // margin-top: -5rem;
 
       .sub-title{
         margin-bottom: 2rem;
