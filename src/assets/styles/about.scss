@@ -143,6 +143,10 @@
     justify-content: center;
     display: flex;
 
+    .navbar {
+      margin-top: 4rem;
+    }
+
     .img-container {
       height: auto;
       width: 100%;
@@ -176,7 +180,7 @@
 
       // margin-top: -5rem;
 
-      .sub-title{
+      .sub-title {
         margin-bottom: 2rem;
       }
     }
