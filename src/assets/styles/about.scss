@@ -141,14 +141,9 @@
 
     align-items: center;
     justify-content: center;
-    display: flex;
-
-    .navbar {
-      margin-top: 4rem;
-    }
 
     .img-container {
-      height: auto;
+      height: 100%;
       width: 100%;
       display: flex;
       justify-content: start;
@@ -178,9 +173,9 @@
       margin-left: 0;
       padding: 1rem;
 
-      // margin-top: -5rem;
+      margin-top: -5rem;
 
-      .sub-title {
+      .sub-title{
         margin-bottom: 2rem;
       }
     }
