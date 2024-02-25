@@ -16,6 +16,7 @@ function Homepage() {
 
   return (
     <div className="homepage">
+        <Navbar />
       <div className="home-container">
         <div className="text-container">
           <h1 className="title">Taste The</h1>
@@ -46,7 +47,7 @@ function Homepage() {
         </video>
       </div>
 
-      <Navbar />
+    
     </div>
   );
 }
