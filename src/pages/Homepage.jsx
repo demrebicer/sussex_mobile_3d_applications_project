@@ -41,7 +41,7 @@ function Homepage() {
       </div>
 
       <div className="video-container">
-        <video width="480" autoPlay muted loop>
+        <video width="480" autoplay muted loop>
           <source src="/~db596/assets/videos/colaanimation.mp4" type="video/mp4" />
           Tarayıcınız video etiketini desteklemiyor.
         </video>
