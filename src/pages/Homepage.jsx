@@ -16,25 +16,34 @@ function Homepage() {
 
   return (
     <div className="homepage">
-      <div className="text-container">
-        <h1 className="title">Taste The</h1>
-        <h1 className="sub-title">Feeling</h1>
-        <p className="description">
-          Founded in 1886 by pharmacist Dr John S Pemberton in Atlanta, Georgia, The Coca‑Cola Company is the world's leading manufacturer,
-          marketer and distributor of non-alcoholic beverage concentrates and syrups, and produces nearly 400 brands.
-        </p>
-        <button
-          className="view-all-products-btn"
-          onClick={() => {
-            navigateTo("/~db596/drinks");
-          }}
-        >
-          View All Products
-        </button>
-      </div>
+      <div className="home-container">
+        <div className="text-container">
+          <h1 className="title">Taste The</h1>
+          <h1 className="sub-title">Feeling</h1>
+          <p className="description">
+            Founded in 1886 by pharmacist Dr John S Pemberton in Atlanta, Georgia, The Coca‑Cola Company is the world's leading
+            manufacturer, marketer and distributor of non-alcoholic beverage concentrates and syrups, and produces nearly 400 brands.
+          </p>
+          <button
+            className="view-all-products-btn"
+            onClick={() => {
+              navigateTo("/~db596/drinks");
+            }}
+          >
+            View All Products
+          </button>
+        </div>
 
-      <div className="cola-can-container">
-        <img className="cola-can" src={colaCan} alt="Cola Can" />
+        <div className="cola-can-container">
+          <img className="cola-can" src={colaCan} alt="Cola Can" />
+        </div>
+      </div>
+      
+      <div className="video-container">
+        <video width="480" autoPlay muted loop>
+          <source src="/~db596/assets/videos/colaanimation.mp4" type="video/mp4" />
+          Tarayıcınız video etiketini desteklemiyor.
+        </video>
       </div>
 
       <Navbar />

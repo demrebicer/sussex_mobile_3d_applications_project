@@ -4,14 +4,33 @@
   height: 100vh;
   align-items: flex-start;
   background-color: #830b0e;
-  overflow: hidden;
+  // overflow: hidden;
 
   // margin-top: 10rem;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center !important;
   justify-content: space-between !important;
+
+  .home-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0rem;
+  }
+
+  .video-container {
+    margin-bottom: 2rem;
+
+    video {
+      width: 100vw;
+      // border: 3px solid #fff;
+      // border-radius: 0.75rem;
+    }
+  }
 
   .text-container {
     display: flex;
@@ -86,7 +105,7 @@
     }
   }
 
-  .cola-can-container{
+  .cola-can-container {
     height: 100%;
     width: 55%;
     display: flex;
