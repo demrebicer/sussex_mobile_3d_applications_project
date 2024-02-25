@@ -16,8 +16,12 @@ function Homepage() {
 
   return (
     <div className="homepage">
-        <Navbar />
+      <Navbar />
       <div className="home-container">
+        <div className="cola-can-container">
+          <img className="cola-can" src={colaCan} alt="Cola Can" />
+        </div>
+
         <div className="text-container">
           <h1 className="title">Taste The</h1>
           <h1 className="sub-title">Feeling</h1>
@@ -34,20 +38,14 @@ function Homepage() {
             View All Products
           </button>
         </div>
-
-        <div className="cola-can-container">
-          <img className="cola-can" src={colaCan} alt="Cola Can" />
-        </div>
       </div>
-      
+
       <div className="video-container">
         <video width="480" autoPlay muted loop>
           <source src="/~db596/assets/videos/colaanimation.mp4" type="video/mp4" />
           Tarayıcınız video etiketini desteklemiyor.
         </video>
       </div>
-
-    
     </div>
   );
 }
