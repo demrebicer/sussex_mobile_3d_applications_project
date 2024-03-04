@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../assets/styles/cola.scss";
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import * as THREE from "three";
+
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { EdgesGeometry, LineSegments, LineBasicMaterial, MeshStandardMaterial } from "three";
@@ -21,7 +23,7 @@ import { FaRegLightbulb } from "react-icons/fa6";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 
 import { FaCube } from "react-icons/fa6";
-import { FaGripLines } from "react-icons/fa6";
+import { FaGripLines, FaGlassWater } from "react-icons/fa6";
 
 function Cola() {
   const [showTools, setShowTools] = useState(false);
@@ -41,6 +43,7 @@ function Cola() {
   const orbitRef = useRef();
 
   const [data, setData] = useState([]);
+  const [isZero, setIsZero] = useState(false);
 
   useEffect(() => {
     axios.get("https://users.sussex.ac.uk/~db596/backend").then((response) => {
@@ -48,6 +51,13 @@ function Cola() {
       setData(response.data);
     });
   }, []);
+
+  const toggleIsZero = () => {
+    //Wireframe modu kapalıyken sadece texture'ı değiştir
+    if (!wireframe) {
+      setIsZero(!isZero);
+    }
+  };
 
   const toggleTools = () => {
     setShowTools(!showTools);
@@ -172,6 +182,61 @@ function Cola() {
 
   function ColaCanModel() {
     const gltf = useGLTF("/~db596/assets/colacancompressed.glb", true); // Modelin yolu
+    const zeroTexturePath = "/~db596/colacanzerotex2.jpg";
+
+    const zeroTexture = useLoader(THREE.TextureLoader, zeroTexturePath);
+
+    useEffect(() => {
+      // Texture yüklendikten sonra özelliklerini ayarla
+      if (zeroTexture) {
+        zeroTexture.wrapS = THREE.RepeatWrapping;
+        zeroTexture.wrapT = THREE.RepeatWrapping;
+        zeroTexture.repeat.set(1, 1);
+        zeroTexture.offset.set(0, 0);
+        zeroTexture.center.set(0, 0);
+        zeroTexture.rotation = 0;
+        zeroTexture.minFilter = THREE.LinearFilter;
+        zeroTexture.magFilter = THREE.LinearFilter;
+        zeroTexture.anisotropy = 1;
+        zeroTexture.flipY = false;
+        zeroTexture.format = THREE.RGBAFormat; // Format ve type özelliklerini uygun değerlerle değiştirmeniz gerekebilir
+        zeroTexture.type = THREE.UnsignedByteType;
+        zeroTexture.encoding = THREE.sRGBEncoding; // Color space 'srgb' için
+        // Gerektiğinde ek özellikler burada ayarlanabilir
+
+        zeroTexture.opacity = 1;
+        zeroTexture.transparent = false;
+
+        zeroTexture.needsUpdate = true;
+      }
+    }, [zeroTexture]);
+
+    // Texture'ı kullanarak bir material oluştur ve modelinize uygula
+    const ZeroMaterial = new THREE.MeshStandardMaterial({ map: zeroTexture, side: THREE.DoubleSide });
+
+    useEffect(() => {
+      gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+          // Her mesh için orijinal texture'ı userData içinde sakla
+          if (!child.userData.originalTexture) {
+            child.userData.originalTexture = child.material.map;
+          }
+        }
+      });
+
+      gltf.scene.traverse((child) => {
+        if (child.isMesh && child.name === "Body") {
+          if (isZero) {
+            // isZero true ise, zero texture'ı ata
+            child.material = ZeroMaterial;
+          } else {
+            // isZero false ise, orijinal texture'ı geri yükle
+            child.material.map = child.userData.originalTexture;
+          }
+          child.material.needsUpdate = true;
+        }
+      });
+    }, [isZero, zeroTexture, gltf.scene]);
 
     useEffect(() => {
       gltf.scene.traverse((child) => {
@@ -227,7 +292,7 @@ function Cola() {
   return (
     <div className="cola">
       <Navbar />
-      
+
       <h1 className="background-text">Coca</h1>
       <h1 className="background-text">Cola</h1>
       {/* <ColaCanImg /> */}
@@ -376,6 +441,11 @@ function Cola() {
                 <ReactTooltip id="wireframe-mode" place="top" effect="solid" content="Switch to Wireframe Mode" />
                 <button className="subChildButton" data-tooltip-id="wireframe-mode" onClick={setWireframeMode}>
                   <FaGripLines size={24} />
+                </button>
+
+                <ReactTooltip id="change-texture" place="top" effect="solid" content="Change Texture" />
+                <button className="subChildButton" data-tooltip-id="change-texture" onClick={toggleIsZero}>
+                  <FaGlassWater size={24} />
                 </button>
               </div>
             )}
