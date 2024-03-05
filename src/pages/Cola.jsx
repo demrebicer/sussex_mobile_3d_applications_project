@@ -57,12 +57,16 @@ function Cola() {
     //Wireframe modu kapalıyken sadece texture'ı değiştir
     if (!wireframe) {
       setIsZero(!isZero);
+
+      setIsVideoPlaying(false);
     }
   };
 
   const toggleVideo = () => {
     if (!wireframe) {
       setIsVideoPlaying(!isVideoPlaying);
+
+      setIsZero(false);
     }
   };
 
@@ -187,7 +191,6 @@ function Cola() {
     setWireframe(true);
   };
 
-
   function ColaCanModel() {
     const gltf = useGLTF("/~db596/assets/colacancompressed.glb", true); // Modelin yolu
     const zeroTexturePath = "/~db596/colacanzerotex2.jpg";
@@ -219,6 +222,8 @@ function Cola() {
       }
     }, [zeroTexture]);
 
+    const ZeroMaterial = new THREE.MeshStandardMaterial({ map: zeroTexture, side: THREE.DoubleSide });
+
     const [video] = useState(() => {
       const vid = document.createElement("video");
       vid.src = "/~db596/assets/videos/colaanimation.mp4";
@@ -249,36 +254,7 @@ function Cola() {
       videoTexture.needsUpdate = true;
     }, [videoTexture]);
 
-    //if videopalying is true show video on body of can
-    useEffect(() => {
-      gltf.scene.traverse((child) => {
-        if (child.isMesh) {
-          // Her mesh için orijinal texture'ı userData içinde sakla
-          if (!child.userData.originalTexture) {
-            child.userData.originalTexture = child.material.map;
-          }
-        }
-      });
-      
-      if (isVideoPlaying) {
-        gltf.scene.traverse((child) => {
-          if (child.isMesh && child.name === "Body") {
-            child.material.map = videoTexture;
-            child.material.needsUpdate = true;
-          }
-        });
-      } else {
-        gltf.scene.traverse((child) => {
-          if (child.isMesh && child.name === "Body") {
-            child.material.map = child.userData.originalTexture;
-            child.material.needsUpdate = true;
-          }
-        });
-      }
-    }, [isVideoPlaying, gltf.scene]);
-
-    // Texture'ı kullanarak bir material oluştur ve modelinize uygula
-    const ZeroMaterial = new THREE.MeshStandardMaterial({ map: zeroTexture, side: THREE.DoubleSide });
+    const videoMaterial = new THREE.MeshStandardMaterial({ map: videoTexture, side: THREE.DoubleSide });
 
     useEffect(() => {
       gltf.scene.traverse((child) => {
@@ -292,7 +268,11 @@ function Cola() {
 
       gltf.scene.traverse((child) => {
         if (child.isMesh && child.name === "Body") {
-          if (isZero) {
+          if (isVideoPlaying) {
+            console.log("Video is playing");
+            // isZero true ise, zero texture'ı ata
+            child.material = videoMaterial;
+          } else if (isZero) {
             // isZero true ise, zero texture'ı ata
             child.material = ZeroMaterial;
           } else {
@@ -302,7 +282,33 @@ function Cola() {
           child.material.needsUpdate = true;
         }
       });
-    }, [isZero, zeroTexture, gltf.scene]);
+    }, [isVideoPlaying, isZero, videoTexture, gltf.scene]);
+
+    // Texture'ı kullanarak bir material oluştur ve modelinize uygula
+
+    // useEffect(() => {
+    //   gltf.scene.traverse((child) => {
+    //     if (child.isMesh) {
+    //       // Her mesh için orijinal texture'ı userData içinde sakla
+    //       if (!child.userData.originalTexture) {
+    //         child.userData.originalTexture = child.material.map;
+    //       }
+    //     }
+    //   });
+
+    //   gltf.scene.traverse((child) => {
+    //     if (child.isMesh && child.name === "Body") {
+    //       if (isZero) {
+    //         // isZero true ise, zero texture'ı ata
+    //         child.material = ZeroMaterial;
+    //       } else {
+    //         // isZero false ise, orijinal texture'ı geri yükle
+    //         child.material.map = child.userData.originalTexture;
+    //       }
+    //       child.material.needsUpdate = true;
+    //     }
+    //   });
+    // }, [isZero, zeroTexture, gltf.scene]);
 
     useEffect(() => {
       gltf.scene.traverse((child) => {
