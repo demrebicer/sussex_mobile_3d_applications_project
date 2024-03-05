@@ -11,7 +11,7 @@ import axios from "axios";
 
 import Navbar from "../components/navbar";
 
-import { FaWrench } from "react-icons/fa6";
+import { FaPlay, FaWrench } from "react-icons/fa6";
 
 import { FaVideo } from "react-icons/fa6";
 import { FaArrowUp, FaArrowDown, FaArrowLeft, FaArrowRight, FaCompass, FaCircleNotch } from "react-icons/fa6";
@@ -44,6 +44,7 @@ function Cola() {
 
   const [data, setData] = useState([]);
   const [isZero, setIsZero] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
     axios.get("https://users.sussex.ac.uk/~db596/backend").then((response) => {
@@ -56,6 +57,12 @@ function Cola() {
     //Wireframe modu kapalıyken sadece texture'ı değiştir
     if (!wireframe) {
       setIsZero(!isZero);
+    }
+  };
+
+  const toggleVideo = () => {
+    if (!wireframe) {
+      setIsVideoPlaying(!isVideoPlaying);
     }
   };
 
@@ -180,6 +187,7 @@ function Cola() {
     setWireframe(true);
   };
 
+
   function ColaCanModel() {
     const gltf = useGLTF("/~db596/assets/colacancompressed.glb", true); // Modelin yolu
     const zeroTexturePath = "/~db596/colacanzerotex2.jpg";
@@ -210,6 +218,64 @@ function Cola() {
         zeroTexture.needsUpdate = true;
       }
     }, [zeroTexture]);
+
+    const [video] = useState(() => {
+      const vid = document.createElement("video");
+      vid.src = "/~db596/assets/videos/colaanimation.mp4";
+      vid.crossOrigin = "Anonymous";
+      vid.loop = true;
+      vid.muted = true;
+      vid.play();
+      return vid;
+    });
+
+    const videoTexture = new THREE.VideoTexture(video);
+
+    useEffect(() => {
+      videoTexture.wrapS = THREE.RepeatWrapping;
+      videoTexture.wrapT = THREE.RepeatWrapping;
+      // videoTexture.repeat.set(1, 1);
+      videoTexture.offset.set(0, 0);
+      videoTexture.center.set(0, 0);
+      videoTexture.rotation = 0;
+      videoTexture.minFilter = THREE.LinearFilter;
+      videoTexture.magFilter = THREE.LinearFilter;
+      videoTexture.anisotropy = 1;
+      videoTexture.flipY = false;
+      videoTexture.format = THREE.RGBAFormat; // Format ve type özelliklerini uygun değerlerle değiştirmeniz gerekebilir
+      videoTexture.type = THREE.UnsignedByteType;
+      videoTexture.encoding = THREE.sRGBEncoding; // Color space 'srgb' için
+      // Gerektiğinde ek özellikler burada ayarlanabilir
+      videoTexture.needsUpdate = true;
+    }, [videoTexture]);
+
+    //if videopalying is true show video on body of can
+    useEffect(() => {
+      gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+          // Her mesh için orijinal texture'ı userData içinde sakla
+          if (!child.userData.originalTexture) {
+            child.userData.originalTexture = child.material.map;
+          }
+        }
+      });
+      
+      if (isVideoPlaying) {
+        gltf.scene.traverse((child) => {
+          if (child.isMesh && child.name === "Body") {
+            child.material.map = videoTexture;
+            child.material.needsUpdate = true;
+          }
+        });
+      } else {
+        gltf.scene.traverse((child) => {
+          if (child.isMesh && child.name === "Body") {
+            child.material.map = child.userData.originalTexture;
+            child.material.needsUpdate = true;
+          }
+        });
+      }
+    }, [isVideoPlaying, gltf.scene]);
 
     // Texture'ı kullanarak bir material oluştur ve modelinize uygula
     const ZeroMaterial = new THREE.MeshStandardMaterial({ map: zeroTexture, side: THREE.DoubleSide });
@@ -446,6 +512,11 @@ function Cola() {
                 <ReactTooltip id="change-texture" place="top" effect="solid" content="Change Texture" />
                 <button className="subChildButton" data-tooltip-id="change-texture" onClick={toggleIsZero}>
                   <FaGlassWater size={24} />
+                </button>
+
+                <ReactTooltip id="play-video" place="top" effect="solid" content="Play Video" />
+                <button className="subChildButton" data-tooltip-id="play-video" onClick={toggleVideo}>
+                  <FaPlay size={24} />
                 </button>
               </div>
             )}
