@@ -10,5 +10,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <RouterHandler />
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

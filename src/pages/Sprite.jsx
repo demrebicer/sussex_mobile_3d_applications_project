@@ -4,7 +4,7 @@ import "../assets/styles/sprite.scss";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { EdgesGeometry, LineSegments, LineBasicMaterial, MeshStandardMaterial } from 'three';
+import { EdgesGeometry, LineSegments, LineBasicMaterial, MeshStandardMaterial } from "three";
 import axios from "axios";
 
 import Navbar from "../components/navbar";

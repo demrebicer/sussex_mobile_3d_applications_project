@@ -43,12 +43,12 @@ function Contact() {
       return;
     }
     try {
-      const response = await axios.post('https://users.sussex.ac.uk/~db596/backend/add-contact-submission', formData);
-      console.log('Form submitted successfully', response.data);
+      const response = await axios.post("https://users.sussex.ac.uk/~db596/backend/add-contact-submission", formData);
+      console.log("Form submitted successfully", response.data);
       setSubmissionStatus("Your message has been sent successfully."); // Update submission status
       setFormData({ name: "", surname: "", email: "", phone: "", message: "" }); // Reset form data
     } catch (error) {
-      console.error('There was an error submitting the form', error);
+      console.error("There was an error submitting the form", error);
       setSubmissionStatus("There was an unknown error, please try again later."); // Update submission status with error message
     }
   };
@@ -90,7 +90,11 @@ function Contact() {
           </div>
           <button type="submit">Send</button>
         </form>
-        {submissionStatus && <p className={submissionStatus.startsWith("Your") ? "success-message text-center pt-3" : "error-message text-center pt-3"}>{submissionStatus}</p>}
+        {submissionStatus && (
+          <p className={submissionStatus.startsWith("Your") ? "success-message text-center pt-3" : "error-message text-center pt-3"}>
+            {submissionStatus}
+          </p>
+        )}
       </div>
     </div>
   );
