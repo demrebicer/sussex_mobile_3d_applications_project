@@ -124,15 +124,22 @@
   .scrollButton {
     cursor: pointer;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
   }
 }
 
+@media (max-width: 400px){
+  .homepage{
+    margin-top: 10rem !important;
+  }
+}
+
 @media (max-width: 768px) {
   .homepage {
+    width: 100%;
     margin-top: 6rem;
     flex-direction: column;
 
@@ -201,6 +208,10 @@
     .cola-can {
       width: 25rem;
       height: 25rem;
+    }
+
+    .scrollButton {
+      display: none;
     }
   }
 }
@@ -285,15 +296,7 @@
       height: 40rem;
     }
     .scrollButton {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      cursor: pointer;
-      margin-top: 4rem;
-      transform: translateX(-50%, -50%);
-      z-index: 1000;
+      display: none;
     }
   }
 }
