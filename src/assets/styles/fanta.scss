@@ -181,6 +181,14 @@
   }
 }
 
+@media (max-width: 400px) {
+  .fanta {
+    .history-container {
+      margin-bottom: -10rem !important;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .fanta {
     // margin-top: 6rem;

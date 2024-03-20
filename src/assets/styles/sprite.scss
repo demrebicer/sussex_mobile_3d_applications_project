@@ -202,6 +202,14 @@
   }
 }
 
+@media (max-width: 400px) {
+  .sprite {
+    .history-container {
+      margin-bottom: -10rem !important;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .sprite {
     // margin-top: 6rem;
