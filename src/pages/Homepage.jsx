@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
+import { TbArrowMoveDown } from "react-icons/tb";
 
 function ColaCanModel() {
   const gltf = useGLTF("/~db596/assets/colacan.gltf", true); // Modelin yolu
@@ -38,6 +39,16 @@ function Homepage() {
             View All Products
           </button>
         </div>
+      </div>
+
+      <div className="scrollButton" onClick={()=>{
+         window.scrollTo({
+          left: 0,
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      }}>
+        <TbArrowMoveDown size={50} color="#fff" />
       </div>
 
       <div className="video-container">

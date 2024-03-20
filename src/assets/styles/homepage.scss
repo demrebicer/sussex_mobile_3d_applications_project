@@ -120,6 +120,15 @@
     // width: 35rem;
     height: 55%;
   }
+
+  .scrollButton {
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px; /* Sayfanın altından itibaren 20px yukarıda */
+    left: 50%; /* Yatay olarak ortala */
+    transform: translateX(-50%); /* Sol tarafa doğru yarısının genişliği kadar kaydır */
+    z-index: 1000; /* Diğer içeriklerin üstünde görünmesini sağla */
+  }
 }
 
 @media (max-width: 768px) {
