@@ -124,10 +124,10 @@
   .scrollButton {
     cursor: pointer;
     position: absolute;
-    bottom: 0; /* Sayfanın altından itibaren 20px yukarıda */
-    left: 50%; /* Yatay olarak ortala */
-    transform: translateX(-50%); /* Sol tarafa doğru yarısının genişliği kadar kaydır */
-    z-index: 1000; /* Diğer içeriklerin üstünde görünmesini sağla */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
   }
 }
 
@@ -285,7 +285,15 @@
       height: 40rem;
     }
     .scrollButton {
-      bottom: 0;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      margin-top: 4rem;
+      transform: translateX(-50%, -50%);
+      z-index: 1000;
     }
   }
 }

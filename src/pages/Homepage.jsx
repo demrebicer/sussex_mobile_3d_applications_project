@@ -38,17 +38,20 @@ function Homepage() {
           >
             View All Products
           </button>
-        </div>
-      </div>
 
-      <div className="scrollButton" onClick={()=>{
-         window.scrollTo({
-          left: 0,
-          top: document.body.scrollHeight,
-          behavior: 'smooth'
-        });
-      }}>
-        <TbArrowMoveDown size={50} color="#fff" />
+          <div
+            className="scrollButton"
+            onClick={() => {
+              window.scrollTo({
+                left: 0,
+                top: document.body.scrollHeight,
+                behavior: "smooth",
+              });
+            }}
+          >
+            <TbArrowMoveDown size={50} color="#fff" />
+          </div>
+        </div>
       </div>
 
       <div className="video-container">
