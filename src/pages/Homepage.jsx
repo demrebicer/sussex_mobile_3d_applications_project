@@ -15,6 +15,8 @@ function Homepage() {
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+
+    document.querySelector("video").play();
   };
 
   return (
