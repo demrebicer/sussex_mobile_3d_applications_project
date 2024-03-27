@@ -74,6 +74,14 @@
   }
 }
 
+@media (max-width: 400px) {
+  .about {
+    .text-container {
+      padding: 0rem !important;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .about {
     margin-top: 6rem;
