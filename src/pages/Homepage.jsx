@@ -6,14 +6,16 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import { TbArrowMoveDown } from "react-icons/tb";
-
-function ColaCanModel() {
-  const gltf = useGLTF("/~db596/assets/colacan.gltf", true); // Modelin yolu
-  return <primitive object={gltf.scene} />;
-}
+import { MdVolumeOff, MdVolumeUp } from "react-icons/md";
 
 function Homepage() {
   const navigateTo = useNavigate();
+
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+  };
 
   return (
     <div className="homepage">
@@ -55,10 +57,12 @@ function Homepage() {
       </div>
 
       <div className="video-container">
-        <video width="480" autoPlay muted loop>
-          <source src="/~db596/assets/videos/colaanimation.mp4" type="video/mp4" />
-          Tarayıcınız video etiketini desteklemiyor.
+        <video width="480" autoPlay muted={isMuted} loop>
+          <source src="/~db596/assets/videos/cola_animation_with_sound.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
+
+        <button className="muteButton" onClick={toggleMute}>{isMuted ? <MdVolumeOff className="icon"/> : <MdVolumeUp className="icon" />}</button>
       </div>
     </div>
   );

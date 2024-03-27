@@ -33,6 +33,30 @@
       // border: 3px solid #fff;
       // border-radius: 0.75rem;
     }
+
+    .muteButton{
+      position: absolute;
+      right: 1%;
+      bottom: -60%;
+
+      height: 2.5rem;
+      width: 2.5rem;
+      background-color: transparent;
+      border: 3px solid #ffffff;
+      border-radius: 20%;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+
+      .icon {
+        font-size: 1.5rem;
+      }
+
+      color: #ffffff;
+    }
   }
 
   .text-container {
